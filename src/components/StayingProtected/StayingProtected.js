@@ -1,14 +1,15 @@
-import React from 'react';
-import './StayingProtected.scss'
+import React from "react";
+import "./StayingProtected.scss";
 
 const StayingProtected = () => {
-    return (
-        <div className="staying-protected-container">
-            <h2 className="staying-protected-header">
-                Staying Protected
-            </h2>
-        </div>
-    )
-}
+  return (
+    <div
+      className="staying-protected-container"
+      data-testid="staying-protected-container"
+    >
+      <h2 className="staying-protected-header">Staying Protected</h2>
+    </div>
+  );
+};
 
-export default StayingProtected
+export default StayingProtected;

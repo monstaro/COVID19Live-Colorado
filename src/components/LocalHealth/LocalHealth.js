@@ -12,11 +12,16 @@ class LocalHealth extends Component {
     };
   }
   componentDidMount() {
-    fetchHealthDepts().then((data) => this.props.loadHealthDepts(data));
+    fetchHealthDepts()
+      .then((data) => this.props.loadHealthDepts(data))
+      .catch((err) => console.error(err.message));
   }
   render() {
     return (
-      <div className="local-health-container">
+      <div
+        className="local-health-container"
+        data-testid="local-health-container"
+      >
         <h2 className="local-health-header">Local Health Depts</h2>
         <h3 className="">Select your county below:</h3>
       </div>

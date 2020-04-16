@@ -6,6 +6,8 @@ import { createStore } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { fetchCounties } from '../../apiCalls'
+import { fetchHealthDepts } from '../../apiCalls'
+
 jest.mock('../../apiCalls')
 
 
@@ -141,8 +143,40 @@ describe('App', () => {
       "State_Number_Outbreaks": 83
     }
   ]
+
+  var mockHealthDepts = [
+    {
+      "id": "1",
+      "name": "Adams County",
+      "website": "http://www.tchd.org/",
+      "twitter": "https://twitter.com/TCHDHealth",
+      "facebook": "https://www.facebook.com/cotchd/",
+      "rss": "",
+      "phone": "(303) 220-9200"
+    },
+    {
+      "id": "2",
+      "name": "Alamosa County",
+      "website": "https://www.colorado.gov/pacific/alamosacounty/public-health-2",
+      "twitter": "",
+      "facebook": "",
+      "rss": "",
+      "phone": "(719) 589-4848"
+    },
+    {
+      "id": "3",
+      "name": "Arapahoe County",
+      "website": "http://www.tchd.org/",
+      "twitter": "https://twitter.com/TCHDHealth",
+      "facebook": "https://www.facebook.com/cotchd/",
+      "rss": "",
+      "phone": "(303) 220-9200"
+    }
+  ]
   //execute mock function
   fetchCounties.mockResolvedValueOnce(mockCounties)
+  fetchHealthDepts.mockResolvedValueOnce(mockHealthDepts)
+
   //render document with store
     // const { getByText } = render (
     //   <Provider store={store}>
@@ -172,7 +206,7 @@ describe('App', () => {
     // const store = createStore(rootReducer)
     // fetchCounties.mockResolvedValueOnce(mockCounties)
     const store = createStore(rootReducer)
-    const { getByText } = render (
+    const { getByText, getByTestId } = render (
       <Provider store={store}>
         <Router>
           <App />
@@ -180,14 +214,14 @@ describe('App', () => {
       </Provider>
     )
     fireEvent.click((getByText('About')))
-    expect(getByText('About CovidLive')).toBeInTheDocument()
+    expect(getByTestId('about-container')).toBeInTheDocument()
     fireEvent.click((getByText('Staying Protected')))
-    expect(getByText('Staying Protected')).toBeInTheDocument()
+    expect(getByTestId('staying-protected-container')).toBeInTheDocument()
     fireEvent.click((getByText('Your County Health Department')))
-    expect(getByText('Select your county below')).toBeInTheDocument()
+    expect(getByTestId('local-health-container')).toBeInTheDocument()
     fireEvent.click((getByText('Live County Stats')))
-    expect(getByText('County Stats')).toBeInTheDocument()
+    expect(getByTestId('county-stats-container')).toBeInTheDocument()
     fireEvent.click((getByText('Bookmarked Counties')))
-    expect(getByText('Bookmarks')).toBeInTheDocument()
+    expect(getByTestId('bookmarks-container')).toBeInTheDocument()
   })
 })
