@@ -39,7 +39,11 @@ function App() {
         component={() => <StayingProtected className="main-area" />}
       />
 
-      <Route path="/county-stats" exact component={() => <CountyStats />} />
+      <Route
+        path="/county-stats"
+        exact
+        component={() => <CountyStats className="main-area" />}
+      />
 
       <Route
         path="/bookmarks"

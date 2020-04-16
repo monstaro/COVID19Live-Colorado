@@ -8,14 +8,9 @@ const Header = () => {
             <div className="covid-live">
                 CovidLive
             </div>
-            <div className="colorado">
+             <div className="colorado">
                 Colorado
             </div>
-            {/* <div className="underline">
-                <p>
-                ________________________
-                </p>
-            </div> */}
         </p>
     </div>
     )
