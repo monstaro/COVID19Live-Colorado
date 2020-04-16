@@ -57,7 +57,7 @@ class App extends Component {
         <Route 
           path="/local-health"
           exact
-          component={() => <LocalHealth />} />
+          component={() => <LocalHealth className="main-area"/>} />
         <Route 
           path="/welcome"
           exact
