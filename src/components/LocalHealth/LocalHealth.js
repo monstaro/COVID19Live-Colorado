@@ -1,7 +1,14 @@
 import React, { Component } from 'react'
 import './LocalHealth.scss'
+import { fetchHealthDepts } from '../../apiCalls'
+import { loadHealthDepts } from '../../actions'
+import { connect } from 'react-redux'
 
 class LocalHealth extends Component {
+    componentDidMount() {
+        fetchHealthDepts()
+        .then(data => this.props.loadHealthDepts(data))
+    }
     render() {
         return (
             <div className="local-health-container">
@@ -16,4 +23,8 @@ class LocalHealth extends Component {
     }
 }
 
-export default LocalHealth;
+const mapDispatchToProps = dispatch => ({
+    loadHealthDepts: healthDepts => dispatch(loadHealthDepts(healthDepts))
+})
+
+export default connect(null, mapDispatchToProps)(LocalHealth)
