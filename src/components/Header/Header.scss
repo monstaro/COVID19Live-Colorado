@@ -1,0 +1,24 @@
+@import '../../sass/vars';
+@import '../../sass/mixins';
+
+.header-container {
+  @include header-border-position($grey);
+  padding: 0px 25px 0px 110px;
+}
+
+.header-container:before {
+  @include header-border-line(18%, 82%, $sidebar-blue);
+}
+
+.title {
+  color: $sidebar-blue;
+}
+
+.covid-live {
+  font-size: 40px;
+}
+
+.colorado {
+  font-size: 28px;
+  text-align: right;
+}

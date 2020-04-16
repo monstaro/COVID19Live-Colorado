@@ -1,9 +1,0 @@
-.welcome-container {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.welcome-header {
-   color: #EFEFEF; 
-}

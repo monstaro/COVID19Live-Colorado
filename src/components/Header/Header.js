@@ -1,17 +1,17 @@
 import React from 'react'
-import './Header.css'
+import './Header.scss'
 
 const Header = () => {
     return (
     <div className="header-container">
-        <p className="title">
-            <div className="covid-live">
+        <section className="title">
+            <section className="covid-live">
                 CovidLive
-            </div>
-             <div className="colorado">
+            </section>
+             <section className="colorado">
                 Colorado
-            </div>
-        </p>
+            </section>
+        </section>
     </div>
     )
 }

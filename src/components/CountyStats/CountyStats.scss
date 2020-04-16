@@ -1,10 +1,10 @@
 @import '../../sass/mixins';
 @import '../../sass/vars';
 
-.bookmarks-container {
+.county-stats-container {
     @include main-area-container()
 }
 
-.bookmarks-header {
-   color: $grey; 
+.county-stats-header {
+    color: $grey;
 }

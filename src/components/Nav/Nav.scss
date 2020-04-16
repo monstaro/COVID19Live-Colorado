@@ -1,0 +1,17 @@
+@import '../../sass/vars';
+@import '../../sass/mixins';
+
+.nav-container {
+  @include header-border-position($light-blue)
+}
+
+.nav-container:before {
+  @include header-border-line(0, 88%, $grey);
+}
+
+.site-description {
+  color: $grey;
+  font-size: 20px;
+  font-style: italic;
+  margin: auto 0 auto 8%;
+}

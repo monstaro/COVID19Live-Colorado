@@ -1,10 +1,10 @@
 @import '../../sass/mixins';
 @import '../../sass/vars';
 
-.bookmarks-container {
+.about-container {
     @include main-area-container()
 }
 
-.bookmarks-header {
+.about-header {
    color: $grey; 
 }

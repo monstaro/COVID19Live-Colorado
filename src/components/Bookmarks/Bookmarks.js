@@ -4,9 +4,9 @@ import './Bookmarks.scss'
 const Bookmarks = () => {
     return (
         <div className="bookmarks-container">
-            <h3 className="bookmarks-header">
+            <h2 className="bookmarks-header">
                 Bookmarks
-            </h3>
+            </h2>
         </div>
     )
 }
