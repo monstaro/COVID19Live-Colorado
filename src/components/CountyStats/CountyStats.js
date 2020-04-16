@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./CountyStats.scss";
 import { connect } from "react-redux";
+import { loadCounties } from '../../apiCalls'
 
 class CountyStats extends Component {
   constructor(props) {
@@ -21,4 +22,8 @@ class CountyStats extends Component {
   }
 }
 
-export default connect(null)(CountyStats)
+const mapStateToProps = state => ({
+  counties: state.countiesList
+})
+
+export default connect(mapStateToProps)(CountyStats)
