@@ -11,15 +11,15 @@ import StayingProtected from "../StayingProtected/StayingProtected";
 import Bookmarks from "../Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
 import CountyStats from "../CountyStats/CountyStats";
-import { loadCounties } from "../../actions"
+import { loadCounties } from "../../actions";
 import { fetchCounties } from "../../apiCalls";
 import { connect } from "react-redux";
 
 class App extends Component {
   componentDidMount() {
     fetchCounties()
-    .then(data => this.props.loadCounties(data))
-    .catch(err => console.error(err.message))
+      .then((data) => this.props.loadCounties(data))
+      .catch((err) => console.error(err.message));
   }
   render() {
     return (
@@ -54,22 +54,20 @@ class App extends Component {
           exact
           component={() => <Bookmarks className="main-area" />}
         />
-        <Route 
+        <Route
           path="/local-health"
           exact
-          component={() => <LocalHealth className="main-area"/>} />
-        <Route 
-          path="/welcome"
-          exact
-          component={() => <Welcome />} />
+          component={() => <LocalHealth className="main-area" />}
+        />
+        <Route path="/welcome" exact component={() => <Welcome />} />
         <Footer className="footer" />
       </div>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  loadCounties: counties => dispatch(loadCounties(counties))
-})
+const mapDispatchToProps = (dispatch) => ({
+  loadCounties: (counties) => dispatch(loadCounties(counties)),
+});
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(null, mapDispatchToProps)(App);

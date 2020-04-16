@@ -15,8 +15,6 @@ class LocalHealth extends Component {
     fetchHealthDepts().then((data) => this.props.loadHealthDepts(data));
   }
   render() {
-    console.log(this.props);
-
     return (
       <div className="local-health-container">
         <h2 className="local-health-header">Local Health Depts</h2>
