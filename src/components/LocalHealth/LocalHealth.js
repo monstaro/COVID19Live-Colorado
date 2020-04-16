@@ -1,9 +1,12 @@
 import React from 'react'
+import './LocalHealth.scss'
 
 const LocalHealth = () => {
     return (
         <div className="local-health-container">
-            Local Health Depts
+            <h2 className="local-health-header">
+                Local Health Depts
+            </h2>
         </div>
     )
 }

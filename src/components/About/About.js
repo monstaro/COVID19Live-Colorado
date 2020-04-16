@@ -1,12 +1,12 @@
 import React from 'react';
-import './About.css'
+import './About.scss'
 
 const About = () => {
     return (
         <div className="about-container">
-            <h3 className="about-header">
+            <h2 className="about-header">
                 About CovidLive
-            </h3>
+            </h2>
         </div>
     )
 }

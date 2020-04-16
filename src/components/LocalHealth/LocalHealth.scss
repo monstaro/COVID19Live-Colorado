@@ -1,0 +1,10 @@
+@import '../../sass/vars';
+@import '../../sass/mixins';
+
+.local-health-container {
+    @include main-area-container();
+}
+
+.local-health-header {
+    color: $grey;
+}

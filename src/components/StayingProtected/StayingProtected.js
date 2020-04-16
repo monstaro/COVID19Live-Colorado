@@ -1,10 +1,12 @@
 import React from 'react';
-import './StayingProtected.css'
+import './StayingProtected.scss'
 
 const StayingProtected = () => {
     return (
-        <div>
-            Staying Protected
+        <div className="staying-protected-container">
+            <h2 className="staying-protected-header">
+                Staying Protected
+            </h2>
         </div>
     )
 }

@@ -1,0 +1,9 @@
+@import '../../sass/mixins';
+
+.staying-protected-container {
+    @include main-area-container()
+}
+
+.staying-protected-header {
+   color: #EFEFEF; 
+}

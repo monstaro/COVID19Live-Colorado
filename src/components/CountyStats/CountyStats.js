@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+import './CountyStats.scss';
 
 const CountyStats = () => {
     return (
         <div className="county-stats-container">
-            County Stats
+            <h2 className="county-stats-header">
+                County Stats
+            </h2>
         </div>
     )
 }
