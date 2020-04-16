@@ -1,0 +1,16 @@
+.sidebar-container {
+    background-color: #EFEFEF;
+}
+
+.sidebar-links {
+    list-style-type: none;
+    padding-right: 35px;
+    margin: 20px 0;
+    text-align: right;
+}
+
+.about, .staying-protected, .local-health, .county-stats, .bookmarked-counties {
+    color: #0788BF;
+    font-size: 1.2em;
+    margin: 40px 0;
+}
