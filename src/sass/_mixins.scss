@@ -1,0 +1,9 @@
+@mixin main-area-container() {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+@mixin main-area-header() {
+   color: #EFEFEF; 
+}
