@@ -13,7 +13,7 @@ const Sidebar = () => {
                 <li className="staying-protected">Staying Protected</li>
             </NavLink>
             <NavLink to="/local-health">
-                <li className="local-health">Find Your County Health Department</li>
+                <li className="local-health">Your County Health Department</li>
             </NavLink>
             <NavLink to="/county-stats">
                 <li className="county-stats">Live County Stats</li>
