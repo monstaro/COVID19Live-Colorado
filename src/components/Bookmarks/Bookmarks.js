@@ -1,5 +1,5 @@
 import React from 'react'
-import './Bookmarks.css'
+import './Bookmarks.scss'
 
 const Bookmarks = () => {
     return (
