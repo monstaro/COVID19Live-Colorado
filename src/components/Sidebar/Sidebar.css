@@ -1,16 +1,20 @@
 .sidebar-container {
-    background-color: #EFEFEF;
+  background-color: #efefef;
 }
 
 .sidebar-links {
-    list-style-type: none;
-    padding-right: 35px;
-    margin: 20px 0;
-    text-align: right;
+  list-style-type: none;
+  padding-right: 35px;
+  margin: 20px 0;
+  text-align: right;
 }
 
-.about, .staying-protected, .local-health, .county-stats, .bookmarked-counties {
-    color: #0788BF;
-    font-size: 1.2em;
-    margin: 40px 0;
+.about,
+.staying-protected,
+.local-health,
+.county-stats,
+.bookmarked-counties {
+  color: #0788bf;
+  font-size: 1.2em;
+  margin: 40px 0;
 }
