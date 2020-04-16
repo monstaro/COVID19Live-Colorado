@@ -14,7 +14,6 @@ jest.mock('../../apiCalls')
 
 describe('App', () => {
   beforeEach(() => {
-    const store = createStore(rootReducer)
     //create mock
     var mockCounties = [
       {
