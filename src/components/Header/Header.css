@@ -1,33 +1,33 @@
 .header-container {
-    background-color: #EFEFEF;
-    display: flex;
-    padding: 0px 25px 0px 110px;
-    position: relative;
-    z-index: 1;
+  background-color: #efefef;
+  display: flex;
+  padding: 0px 25px 0px 110px;
+  position: relative;
+  z-index: 1;
 }
 
 .header-container:before {
-    content : "";
-    position: absolute;
-    left: 18%;
-    bottom: 0;
-    width: 82%; 
-    border-bottom: 2px solid #0078BF;
+  content: "";
+  position: absolute;
+  left: 18%;
+  bottom: 0;
+  width: 82%;
+  border-bottom: 2px solid #0078bf;
 }
 
 .title {
-    color: #0788BF;
+  color: #0788bf;
 }
 
 .covid-live {
-    font-size: 40px;
+  font-size: 40px;
 }
 
 .colorado {
-    font-size: 28px;
-    text-align: right;
+  font-size: 28px;
+  text-align: right;
 }
 
 .underline {
-    color: #00B2FF;
+  color: #00b2ff;
 }
