@@ -1,9 +1,23 @@
+@import './vars';
+
 @mixin main-area-container() {
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-@mixin main-area-header() {
-   color: #EFEFEF; 
+@mixin header-border-position($bg-color) {
+  background-color: $bg-color;
+  display: flex;
+  position: relative;
+  z-index: 1;
+}
+
+@mixin header-border-line($left-size, $width, $border-color) {
+  content: "";
+  position: absolute;
+  left: $left-size;
+  bottom: 0;
+  width: $width;
+  border-bottom: 2px solid $border-color;
 }

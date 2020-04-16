@@ -5,12 +5,12 @@ import './Nav.scss'
 const Nav = () => {
     return (
         <div className="nav-container">
-            <p className="site-description">
-            <div>
+            <section className="site-description">
+            <section>
             A COVID-19 resource for at-risk Colorado residents.
-            </div>
+            </section>
             Providing live updates on all Colorado counties.
-            </p>
+            </section>
         </div>
     )
 }

@@ -1,9 +1,10 @@
 @import '../../sass/mixins';
+@import '../../sass/vars';
 
 .staying-protected-container {
     @include main-area-container()
 }
 
 .staying-protected-header {
-   color: #EFEFEF; 
+   color: $grey; 
 }
