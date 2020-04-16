@@ -1,9 +1,9 @@
-.welcome-container {
+@mixin main-area-container() {
     display: flex;
     flex-direction: column;
     padding: 20px;
 }
 
-.welcome-header {
+@mixin main-area-header() {
    color: #EFEFEF; 
 }

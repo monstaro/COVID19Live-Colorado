@@ -1,4 +1,5 @@
 import React from 'react';
+import './StayingProtected.css'
 
 const StayingProtected = () => {
     return (

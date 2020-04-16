@@ -1,0 +1,15 @@
+// @import 'foundations/mixins'
+
+@mixin main-area-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.bookmarks-container {
+    @include main-area-container()
+}
+
+.bookmarks-header {
+   color: #EFEFEF; 
+}

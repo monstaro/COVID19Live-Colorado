@@ -1,0 +1,12 @@
+/* @import 'mixins' */
+
+.staying-protected-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    /* @include main-area-container; */
+}
+
+.staying-protected-header {
+   color: #EFEFEF; 
+}
