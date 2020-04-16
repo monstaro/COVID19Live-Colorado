@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./CountyStats.scss";
 import { connect } from "react-redux";
-import { loadCounties } from '../../apiCalls'
 
 class CountyStats extends Component {
   constructor(props) {
@@ -12,18 +11,20 @@ class CountyStats extends Component {
   }
   render() {
     return (
-      <div className="county-stats-container">
+      <div
+        className="county-stats-container"
+        data-testid="county-stats-container"
+      >
         <h2 className="county-stats-header">County Stats</h2>
         <h3 className="county-stats-subheader">Select A County Below</h3>
-        <section className="county-picker">
-        </section>
+        <section className="county-picker"></section>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  counties: state.countiesList
-})
+const mapStateToProps = (state) => ({
+  counties: state.countiesList,
+});
 
-export default connect(mapStateToProps)(CountyStats)
+export default connect(mapStateToProps)(CountyStats);
