@@ -5,7 +5,7 @@ import Welcome from '../Welcome/Welcome'
 import Header from '../Header/Header'
 import Sidebar from '../Sidebar/Sidebar'
 import Nav from '../Nav/Nav'
-
+import Footer from '../Footer/Footer'
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           component={() => <Welcome className="welcome"/>}
         />
       </Switch>
+      <Footer className="footer"/>
     </div>
   );
 }
