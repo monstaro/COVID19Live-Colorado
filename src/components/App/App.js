@@ -11,8 +11,10 @@ import StayingProtected from "../StayingProtected/StayingProtected";
 import Bookmarks from "../Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
 import CountyStats from "../CountyStats/CountyStats";
+import { fetchCounties } from "../../apiCalls"
 
 function App() {
+  fetchCounties()
   return (
     <div className="App">
       <Header className="header" />
