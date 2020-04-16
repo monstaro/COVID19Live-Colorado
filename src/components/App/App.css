@@ -1,13 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,300;1,400&display=swap');
+
 .App {
   background-color: #00B2FF;
   display: grid;
-  grid-template-areas: "header nav nav"
-                        "sidebar main main"
-                        "sidebar main main";
-  grid-template-rows: 1fr 1fr 1fr;
+  font-family: 'Roboto Mono', monospace;
+  grid-template-areas: "header nav"
+                        "sidebar main";
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 5fr;
   height: 100vh;
 }
 
 .welcome {
-  grid-area: 'main';
+  grid-area: main;
 }
+
+.header {
+  grid-area: header;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+

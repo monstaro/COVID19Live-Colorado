@@ -1,0 +1,33 @@
+.header-container {
+    background-color: #EFEFEF;
+    display: flex;
+    padding: 0px 25px 0px 110px;
+    position: relative;
+    z-index: 1;
+}
+
+.header-container:before {
+    content : "";
+    position: absolute;
+    left: 18%;
+    bottom: 0;
+    width: 82%; 
+    border-bottom: 2px solid #0078BF;
+}
+
+.title {
+    color: #0788BF;
+}
+
+.covid-live {
+    font-size: 40px;
+}
+
+.colorado {
+    font-size: 28px;
+    text-align: right;
+}
+
+.underline {
+    color: #00B2FF;
+}
