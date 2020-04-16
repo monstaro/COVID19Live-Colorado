@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./CountyStats.scss";
 import { connect } from "react-redux";
-import { loadCounties } from '../../apiCalls'
 
 class CountyStats extends Component {
   constructor(props) {
