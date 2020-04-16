@@ -7,19 +7,19 @@ const Sidebar = () => {
     <div className="sidebar-container" data-testid="sidebar-container">
       <ul className="sidebar-links">
         <NavLink to="/about">
-          <li className="about">About</li>
+          <li className="about" data-testid="about">About</li>
         </NavLink>
         <NavLink to="/staying-protected">
-          <li className="staying-protected">Staying Protected</li>
+          <li className="staying-protected" data-testid="staying-protected">Staying Protected</li>
         </NavLink>
         <NavLink to="/local-health">
-          <li className="local-health">Your County Health Department</li>
+          <li className="local-health" data-testid="local-health">Your County Health Department</li>
         </NavLink>
         <NavLink to="/county-stats">
-          <li className="county-stats">Live County Stats</li>
+          <li className="county-stats" data-testid="county-stats">Live County Stats</li>
         </NavLink>
         <NavLink to="bookmarks">
-          <li className="bookmarked-counties">Bookmarked Counties</li>
+          <li className="bookmarked-counties" data-testid="bookmarked-counties">Bookmarked Counties</li>
         </NavLink>
       </ul>
     </div>
