@@ -10,7 +10,7 @@ import About from "../../components/About/About";
 import StayingProtected from "../../components/StayingProtected/StayingProtected";
 import Bookmarks from "../../components/Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
-import CountyStats from "../CountyStats/CountyStats";
+import CountyStats from "../CountyStatsContainer/CountyStats";
 import { loadCounties } from "../../actions";
 import { fetchCounties } from "../../apiCalls";
 import { connect } from "react-redux";
