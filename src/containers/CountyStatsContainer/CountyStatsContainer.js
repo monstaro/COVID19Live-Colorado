@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import "./CountyStats.scss";
+import "./CountyStatsContainer.scss";
 import { connect } from "react-redux";
 import CountyDropdown from '../../components/CountyDropdown/CountyDropdown'
+import CountyData from '../../components/CountyData/CountyData'
 
 class CountyStats extends Component {
   constructor(props) {
@@ -35,11 +36,14 @@ class CountyStats extends Component {
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker"></section>
           <CountyDropdown countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
+          <CountyData countyData={this.state.selectedCounty}/>
         </div>
       );
     } else {
       return (
-        'Loading...'
+        <div data-testid="county-stats-container">
+          'Loading...'
+        </div>
       )
     }
   }
