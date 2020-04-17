@@ -1,10 +1,9 @@
 import React from 'react';
 
-
-const CountyData = ({countyData}) => {
+const CountyData = (props) => {
     const data = () => {
-        if (countyData) {
-            return countyData.County_Pos_Cases
+        if (props.countyDeaths && props.countyDeaths.length) {
+            return props.countyDeaths[props.countyDeaths.length-1].deaths
         } else {
             return ('Loading..')
         }

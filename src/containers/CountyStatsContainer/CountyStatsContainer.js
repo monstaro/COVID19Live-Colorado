@@ -9,6 +9,7 @@ class CountyStats extends Component {
     super(props);
     this.state = {
       selectedCounty: null,
+      selectedCountyDeaths: null
     };
   }
   getCountyNames = () => {
@@ -21,8 +22,10 @@ class CountyStats extends Component {
     return counties
   }
   selectCounty = (county) => {
+
     this.setState({
-      selectedCounty: this.props.counties.find(countyObject => countyObject.FULL_ === county)
+      selectedCounty: this.props.counties.find(countyObject => countyObject.FULL_ === county),
+      selectedCountyDeaths: this.props.countyDeaths.filter(co => co.county === county.split(' ')[0])
     })
   }
   render() {
@@ -36,7 +39,7 @@ class CountyStats extends Component {
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker"></section>
           <CountyDropdown countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
-          <CountyData countyData={this.state.selectedCounty}/>
+          <CountyData countyDeaths={this.state.selectedCountyDeaths}/>
         </div>
       );
     } else {
@@ -51,6 +54,7 @@ class CountyStats extends Component {
 
 const mapStateToProps = (state) => ({
   counties: state.countiesList,
+  countyDeaths: state.countyDeaths
 });
 
 export default connect(mapStateToProps)(CountyStats);
