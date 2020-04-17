@@ -1,0 +1,11 @@
+@import '../../sass/mixins';
+@import '../../sass/vars';
+
+.county-stats-container {
+    @include main-area-container()
+}
+
+.county-stats-header {
+    color: $grey;
+}
+
