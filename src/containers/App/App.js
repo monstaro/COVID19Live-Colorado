@@ -12,7 +12,7 @@ import Bookmarks from "../../components/Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
 import CountyStatsContainer from "../CountyStatsContainer/CountyStatsContainer";
 import { loadCounties } from "../../actions";
-import { fetchCounties } from "../../apiCalls";
+import { fetchCounties, fetchCountyDeaths } from "../../apiCalls";
 import { connect } from "react-redux";
 
 class App extends Component {
@@ -20,6 +20,8 @@ class App extends Component {
     fetchCounties()
       .then((data) => this.props.loadCounties(data))
       .catch((err) => console.error(err.message));
+    fetchCountyDeaths()
+      .then(data => console.log(data))
   }
   render() {
     return (
