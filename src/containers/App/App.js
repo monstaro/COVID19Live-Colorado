@@ -10,7 +10,7 @@ import About from "../../components/About/About";
 import StayingProtected from "../../components/StayingProtected/StayingProtected";
 import Bookmarks from "../../components/Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
-import CountyStats from "../CountyStatsContainer/CountyStats";
+import CountyStatsContainer from "../CountyStatsContainer/CountyStatsContainer";
 import { loadCounties } from "../../actions";
 import { fetchCounties } from "../../apiCalls";
 import { connect } from "react-redux";
@@ -47,7 +47,7 @@ class App extends Component {
         <Route
           path="/county-stats"
           exact
-          component={() => <CountyStats className="main-area" />}
+          component={() => <CountyStatsContainer className="main-area" />}
         />
         <Route
           path="/bookmarks"

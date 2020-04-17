@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./CountyStats.scss";
+import "./CountyStatsContainer.scss";
 import { connect } from "react-redux";
 import CountyDropdown from '../../components/CountyDropdown/CountyDropdown'
 

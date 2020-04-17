@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers';
-import CountyStats from './CountyStats'
+import CountyStatsContainer from './CountyStatsContainer'
 
 describe ('County Stats', () => {
     it('should render county stats info', () => {
@@ -12,7 +12,7 @@ describe ('County Stats', () => {
     const { getByTestId } = render (
       <Provider store = {store}>
         <Router>
-          <CountyStats />
+          <CountyStatsContainer />
         </Router>
       </Provider>
     )
