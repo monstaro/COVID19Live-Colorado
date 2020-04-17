@@ -11,7 +11,7 @@ import StayingProtected from "../../components/StayingProtected/StayingProtected
 import Bookmarks from "../../components/Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
 import CountyStatsContainer from "../CountyStatsContainer/CountyStatsContainer";
-import { loadCounties } from "../../actions";
+import { loadCounties, loadCountyDeaths } from "../../actions";
 import { fetchCounties, fetchCountyDeaths } from "../../apiCalls";
 import { connect } from "react-redux";
 
@@ -21,7 +21,7 @@ class App extends Component {
       .then((data) => this.props.loadCounties(data))
       .catch((err) => console.error(err.message));
     fetchCountyDeaths()
-      .then(data => console.log(data))
+      .then(data => this.props.loadCountyDeaths(data))
   }
   render() {
     return (
@@ -70,6 +70,7 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   loadCounties: (counties) => dispatch(loadCounties(counties)),
+  loadCountyDeaths: (countyDeaths) => dispatch(loadCountyDeaths(countyDeaths))
 });
 
 export default connect(null, mapDispatchToProps)(App);

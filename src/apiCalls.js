@@ -1,4 +1,5 @@
-var Papa = require("papaparse");
+const request=require('request')
+const csv=require('csvtojson')
 
 export const fetchCounties = async () => {
   const response = await fetch(
@@ -19,36 +20,15 @@ export const fetchHealthDepts = async () => {
 };
 
 export const fetchCountyDeaths = async () => {
-  const response = await Papa.parse(
-    "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv",
-    {
-      delimiter: "", // auto-detect
-      newline: "", // auto-detect
-      quoteChar: '"',
-      escapeChar: '"',
-      header: true,
-      transformHeader: undefined,
-      dynamicTyping: false,
-      preview: 0,
-      encoding: "",
-      worker: false,
-      comments: false,
-      step: undefined,
-      complete: function (results) {
-        console.log(results.data.filter(entry => entry.state === 'Colorado'));
-      },
-      error: undefined,
-      download: true,
-      downloadRequestHeaders: undefined,
-      downloadRequestBody: undefined,
-      skipEmptyLines: false,
-      chunk: undefined,
-      fastMode: undefined,
-      beforeFirstChunk: undefined,
-      withCredentials: undefined,
-      transform: undefined,
-      delimitersToGuess: [",", "\t", "|", ";", Papa.RECORD_SEP, Papa.UNIT_SEP],
-    }
-  );
-  return response;
+    
+    const countyDeaths = []
+    await csv()
+    .fromStream(request.get('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'))
+    .subscribe((json)=>{
+        if(json.state === 'Colorado') {
+            countyDeaths.push(json)
+        }
+    })
+    const a = await countyDeaths
+    return a
 };
