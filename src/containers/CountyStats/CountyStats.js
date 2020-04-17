@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./CountyStats.scss";
 import { connect } from "react-redux";
+import CountyDropdown from '../../components/CountyDropdown/CountyDropdown'
 
 class CountyStats extends Component {
   constructor(props) {
@@ -18,9 +19,13 @@ class CountyStats extends Component {
     }
     return counties
   }
+  selectCounty = (county) => {
+    this.setState({
+      selectedCounty: this.props.counties.find(countyObject => countyObject.FULL_ === county)
+    })
+  }
   render() {
     if (this.props.counties.length) {
-      console.log(this.getCountyNames())
       return (
         <div
           className="county-stats-container"
@@ -29,11 +34,7 @@ class CountyStats extends Component {
           <h2 className="county-stats-header">County Stats</h2>
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker"></section>
-          <input type="text" className="county-stats-input" placeholder="Type Your County Here">
-          </input>
-          <select id="counties">
-            <option value={this.getCountyNames()}></option>
-            </select>
+          <CountyDropdown countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
         </div>
       );
     } else {
