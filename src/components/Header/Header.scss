@@ -3,7 +3,8 @@
 
 .header-container {
   @include header-border-position($grey);
-  padding: 0px 25px 0px 110px;
+  flex-direction: row-reverse;
+  padding: 50px 20px
 }
 
 .header-container:before {
