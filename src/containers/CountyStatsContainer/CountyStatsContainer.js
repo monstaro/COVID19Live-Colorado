@@ -36,7 +36,7 @@ class CountyStats extends Component {
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker"></section>
           <CountyDropdown countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
-          <CountyData />
+          <CountyData countyData={this.state.selectedCounty}/>
         </div>
       );
     } else {
