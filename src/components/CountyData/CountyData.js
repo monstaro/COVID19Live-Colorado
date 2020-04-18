@@ -40,7 +40,6 @@ class CountyData extends Component {
       }
   };
   render() {
-    console.log(this.state);
     return (
       <div data-testid="county-data-container">
        {this.makeTable()}
