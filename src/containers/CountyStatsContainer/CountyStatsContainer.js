@@ -65,7 +65,6 @@ class CountyStats extends Component {
     }
   }
   render() {
-    console.log(this.state)
     if (this.props.counties.length) {
       return (
         <div
@@ -76,11 +75,11 @@ class CountyStats extends Component {
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker"></section>
           <CountyDropdown disableFirstVal={this.state.firstDropdownDisabled} countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
-          {this.state.countyName}
           <CountyData
-             deaths={this.state.deaths || 0} 
-             cases={this.state.cases || 0}
-             countyPop={this.state.countyPop || 0}
+             deaths={this.state.deaths} 
+             cases={this.state.cases}
+             countyPop={this.state.countyPop}
+             countyName={this.state.countyName}
              />
           <button onClick={() => this.toggleBookmark()}
                 className="bookmark-btn">{this.state.bookmarkBtnTxt}</button>
