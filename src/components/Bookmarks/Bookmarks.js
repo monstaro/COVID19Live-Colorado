@@ -19,7 +19,7 @@ const Bookmarks = ({bookmarks}) => {
 
 
 const mapStateToProps = state => ({
-  bookmarks: state.bookmarks.map(entry => (entry.bookmark))
+  bookmarks: state.bookmarks
 })
 
 export default connect(mapStateToProps)(Bookmarks);
