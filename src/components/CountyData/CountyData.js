@@ -8,16 +8,20 @@ class CountyData extends Component {
         <div>
           <h4>{this.props.countyName}</h4>
           <table>
-            <tr>
-              <th>Positive Cases</th>
-              <th>Fatalities</th>
-              <th>County Population</th>
-            </tr>
-            <tr>
-              <td>{this.props.cases}</td>
-              <td>{this.props.deaths}</td>
-              <td>{this.props.countyPop}</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Positive Cases</th>
+                <th>Fatalities</th>
+                <th>County Population</th>
+              </tr>
+            </thead>
+            <thead>
+              <tr>
+                <td>{this.props.cases}</td>
+                <td>{this.props.deaths}</td>
+                <td>{this.props.countyPop}</td>
+              </tr>
+            </thead>
           </table>
         </div>
       );
