@@ -8,7 +8,7 @@ import Nav from "../../components/Nav/Nav";
 import Footer from "../../components/Footer/Footer";
 import About from "../../components/About/About";
 import StayingProtected from "../../components/StayingProtected/StayingProtected";
-import Bookmarks from "../../components/Bookmarks/Bookmarks";
+import Bookmarks from "../Bookmarks/Bookmarks";
 import LocalHealth from "../LocalHealth/LocalHealth";
 import CountyStatsContainer from "../CountyStatsContainer/CountyStatsContainer";
 import { loadCounties, loadCountyDeaths } from "../../actions";
