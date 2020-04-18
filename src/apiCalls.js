@@ -6,9 +6,12 @@ export const fetchCounties = async () => {
     "https://opendata.arcgis.com/datasets/fbae539746324ca69ff34f086286845b_0.geojson"
   );
   const data = await response.json();
-  return data.features.map((entries) => {
-    return entries.properties;
-  });
+  const filteredData = data.features.map((entries) => ({
+    County_Population: entries.properties.County_Population,
+    County_Pos_Cases: entries.properties.County_Pos_Cases,
+    FULL_: entries.properties.FULL_,
+   }));
+  return filteredData
 };
 
 export const fetchHealthDepts = async () => {
@@ -30,5 +33,9 @@ export const fetchCountyDeaths = async () => {
         }
     })
     const a = await countyDeaths
-    return a
+    const b = await a.map(entry => ({cases: entry.cases,
+      county: entry.county,
+      date: entry.date,
+      deaths: entry.deaths}))
+    return b
 };

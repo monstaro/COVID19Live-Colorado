@@ -8,7 +8,7 @@
 }
 
 .header-container:before {
-  @include header-border-line(18%, 82%, $sidebar-blue);
+  @include header-border-line(19%, 82%, $sidebar-blue);
 }
 
 .title {

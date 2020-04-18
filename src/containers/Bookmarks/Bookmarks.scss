@@ -2,7 +2,8 @@
 @import '../../sass/vars';
 
 .bookmarks-container {
-    @include main-area-container()
+    @include main-area-container();
+    overflow: scroll;
 }
 
 .bookmarks-header {

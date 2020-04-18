@@ -9,3 +9,13 @@
     color: $grey;
 }
 
+
+.county-picker {
+    display: flex;
+    flex-direction: row;
+}
+
+.bookmark-btn {
+    @include btn(black, black);
+    margin: 50px auto;
+}

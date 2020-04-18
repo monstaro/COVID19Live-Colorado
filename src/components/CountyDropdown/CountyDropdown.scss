@@ -1,0 +1,12 @@
+@import '../../sass/mixins';
+@import '../../sass/vars';
+
+
+#counties {
+ @include btn($grey, $grey);
+ padding: 55px;
+}
+
+.select {
+    display: block;
+}
