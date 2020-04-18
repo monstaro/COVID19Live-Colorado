@@ -3,6 +3,7 @@ import "./CountyStatsContainer.scss";
 import { connect } from "react-redux";
 import CountyDropdown from '../../components/CountyDropdown/CountyDropdown'
 import CountyData from '../../components/CountyData/CountyData'
+import { saveBookmark } from '../../actions';
 
 class CountyStats extends Component {
   constructor(props) {
@@ -27,6 +28,7 @@ class CountyStats extends Component {
   selectCounty = (county) => {
     console.log(this.props.counties.find(countyObject => countyObject.FULL_ === county))
     this.setState({
+      selectedCounty: this.props.counties.find(countyObject => countyObject.FULL_ === county),
       countyName: this.props.counties.find(countyObject => countyObject.FULL_ === county).FULL_ + ':',
       deaths: this.returnCurrentCountyInfo(county),
       cases: this.props.counties.find(countyObject => countyObject.FULL_ === county).County_Pos_Cases,
@@ -59,6 +61,7 @@ class CountyStats extends Component {
              cases={this.state.cases || 0}
              countyPop={this.state.countyPop || 0}
              />
+            &hearts; <button onClick={() => this.props.saveBookmark(this.state.selectedCounty)}>fave</button>Bookmark This County
         </div>
       );
     } else {
@@ -76,4 +79,8 @@ const mapStateToProps = (state) => ({
   countyDeaths: state.countyDeaths
 });
 
-export default connect(mapStateToProps)(CountyStats);
+const mapDispatchToProps = (dispatch) => ({
+  saveBookmark: (bookmark) => dispatch(saveBookmark(bookmark))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CountyStats);
