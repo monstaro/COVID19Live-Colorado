@@ -3,5 +3,10 @@
 
 
 #counties {
- @include btn($grey, $grey)
+ @include btn($grey, $grey);
+ padding: 55px;
+}
+
+.select {
+    display: block;
 }
