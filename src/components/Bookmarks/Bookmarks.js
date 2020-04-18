@@ -9,19 +9,19 @@ const Bookmarks = (props) => {
     return (
       <div className="bookmarks-container" data-testid="bookmarks-container">
         <h2 className="bookmarks-header">Bookmarks</h2>
-        {props.bookmarks.map(bookmark => (
-          <CountyData 
-          deaths={bookmark.deaths}
-          cases={bookmark.cases}
-          countyPop={bookmark.countyPop}
-          countyName={bookmark.countyName}
+        {props.bookmarks.map((bookmark) => (
+          <CountyData
+            deaths={bookmark.deaths}
+            cases={bookmark.cases}
+            countyPop={bookmark.countyPop}
+            countyName={bookmark.countyName}
           />
         ))}
       </div>
     );
   } else {
     return (
-      <div className="bookmarks-container">
+      <div className="bookmarks-container" data-testid="bookmarks-container">
         <h2 className="bookmarks-header">Bookmarks</h2>
       </div>
     );
