@@ -21,3 +21,14 @@
   width: $width;
   border-bottom: 2px solid $border-color;
 }
+
+@mixin btn($border-color, $font-color) {
+  background-color: $light-blue;
+  color: $font-color;
+  border: 2px solid $border-color;
+  font-family: "Roboto Mono", monospace;
+  font-size: 1em;
+  padding: 10px;
+  text-decoration: none;
+  width: 220px;
+}
