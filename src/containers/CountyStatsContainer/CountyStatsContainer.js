@@ -61,7 +61,8 @@ class CountyStats extends Component {
              cases={this.state.cases || 0}
              countyPop={this.state.countyPop || 0}
              />
-            &hearts; <button onClick={() => this.props.saveBookmark(this.state.selectedCounty)}>fave</button>Bookmark This County
+          <button onClick={() => this.props.saveBookmark(this.state.selectedCounty)}
+                className="bookmark-btn">Bookmark This County</button>
         </div>
       );
     } else {
