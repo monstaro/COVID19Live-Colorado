@@ -17,3 +17,8 @@ export const saveBookmark = bookmark => ({
     type: 'SAVE_BOOKMARK',
     bookmark
 })
+
+export const removeBookmark = bookmark => ({
+    type: 'REMOVE_BOOKMARK',
+    bookmark
+})

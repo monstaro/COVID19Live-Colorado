@@ -3,17 +3,18 @@ import "./CountyStatsContainer.scss";
 import { connect } from "react-redux";
 import CountyDropdown from '../../components/CountyDropdown/CountyDropdown'
 import CountyData from '../../components/CountyData/CountyData'
-import { saveBookmark } from '../../actions';
+import { saveBookmark, removeBookmark } from '../../actions';
 
 class CountyStats extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedCounty: null,
-      selectedCountyDeaths: null,
+      countyName: null,
       deaths: null,
       cases: null,
-      countyPop: null
+      countyPop: null,
+      firstDropdownDisabled: false,
+      bookmarkBtnTxt: 'Add To Bookmarks'
     };
   }
   getCountyNames = () => {
@@ -26,16 +27,22 @@ class CountyStats extends Component {
     return counties
   }
   selectCounty = (county) => {
-    console.log(this.props.counties.find(countyObject => countyObject.FULL_ === county))
-    this.setState({
-      selectedCounty: this.props.counties.find(countyObject => countyObject.FULL_ === county),
-      countyName: this.props.counties.find(countyObject => countyObject.FULL_ === county).FULL_ + ':',
-      deaths: this.returnCurrentCountyInfo(county),
-      cases: this.props.counties.find(countyObject => countyObject.FULL_ === county).County_Pos_Cases,
-      countyPop: this.props.counties.find(countyObject => countyObject.FULL_ === county).County_Population
-    })
+    if(county !== 'default') {
+      this.setState({
+        countyName: this.props.counties.find(countyObject => countyObject.FULL_ === county).FULL_ + ':',
+        deaths: this.returnCurrentCountyInfo(county),
+        cases: this.props.counties.find(countyObject => countyObject.FULL_ === county).County_Pos_Cases,
+        countyPop: this.props.counties.find(countyObject => countyObject.FULL_ === county).County_Population,
+        firstDropdownDisabled: true,
+      }, () => {this.setState({
+        bookmarkBtnTxt: this.props.bookmarks.find(bookmark => bookmark.countyName === this.state.countyName) ? 'Remove From Bookmarks' : 'Add To Bookmarks'
+      })})
+    } else {
+      return
+    }
+
   }
-  returnCurrentCountyInfo(county) {
+  returnCurrentCountyInfo = (county) => {
       let a = this.props.countyDeaths.filter(co => co.county === county.split(' ')[0])
       let b = a[a.length - 1]
       if (b) {
@@ -44,7 +51,21 @@ class CountyStats extends Component {
         return 0
       }
   }
+  toggleBookmark = () => {
+    if (this.props.bookmarks.find(bookmark => (bookmark.countyName === this.state.countyName))) {
+      this.props.removeBookmark(this.state)
+      this.setState({
+        bookmarkBtnTxt: 'Bookmark This County'
+      })
+    } else {
+      this.props.saveBookmark(this.state)
+      this.setState({
+        bookmarkBtnTxt: 'Remove From Bookmarks'
+      })
+    }
+  }
   render() {
+    console.log(this.state)
     if (this.props.counties.length) {
       return (
         <div
@@ -54,15 +75,15 @@ class CountyStats extends Component {
           <h2 className="county-stats-header">County Stats</h2>
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker"></section>
-          <CountyDropdown countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
+          <CountyDropdown disableFirstVal={this.state.firstDropdownDisabled} countyNames={this.getCountyNames()} selectCounty={(county) => this.selectCounty(county)}/>
           {this.state.countyName}
           <CountyData
              deaths={this.state.deaths || 0} 
              cases={this.state.cases || 0}
              countyPop={this.state.countyPop || 0}
              />
-          <button onClick={() => this.props.saveBookmark(this.state.selectedCounty)}
-                className="bookmark-btn">Bookmark This County</button>
+          <button onClick={() => this.toggleBookmark()}
+                className="bookmark-btn">{this.state.bookmarkBtnTxt}</button>
         </div>
       );
     } else {
@@ -77,11 +98,13 @@ class CountyStats extends Component {
 
 const mapStateToProps = (state) => ({
   counties: state.countiesList,
-  countyDeaths: state.countyDeaths
+  countyDeaths: state.countyDeaths,
+  bookmarks: state.bookmarks
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  saveBookmark: (bookmark) => dispatch(saveBookmark(bookmark))
+  saveBookmark: (bookmark) => dispatch(saveBookmark(bookmark)),
+  removeBookmark: (bookmark) => dispatch(removeBookmark(bookmark))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountyStats);
