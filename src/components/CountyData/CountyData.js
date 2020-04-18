@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./CountyData.scss";
 
 class CountyData extends Component {
-  makeTable = () => {
+  makeTable = (props) => {
     if (this.props.countyPop) {
       return (
         <div>

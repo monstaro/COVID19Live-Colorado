@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { bookmarks } from "./bookmarks";
 import { saveBookmark, removeBookmark } from "../actions";
 

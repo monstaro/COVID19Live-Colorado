@@ -4,13 +4,13 @@ import { connect } from "react-redux";
 import CountyData from "../../components/CountyData/CountyData";
 
 const Bookmarks = (props) => {
-  console.log(props.bookmarks);
   if (props.bookmarks.length) {
     return (
       <div className="bookmarks-container" data-testid="bookmarks-container">
         <h2 className="bookmarks-header">Bookmarks</h2>
         {props.bookmarks.map((bookmark) => (
           <CountyData
+            key={bookmark.countyName}
             deaths={bookmark.deaths}
             cases={bookmark.cases}
             countyPop={bookmark.countyPop}
