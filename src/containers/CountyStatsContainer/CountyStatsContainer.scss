@@ -10,11 +10,5 @@
 }
 
 .bookmark-btn {
-    background-color: $light-blue;
-    border: 2px solid black;
-    font-family: "Roboto Mono", monospace;
-    font-size: 1em;
-    padding: 10px;
-    text-decoration: none;
-    width: 220px;
+    @include btn(black, black)
 }

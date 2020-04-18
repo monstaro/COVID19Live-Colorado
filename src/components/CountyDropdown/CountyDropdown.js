@@ -1,6 +1,7 @@
 import React from 'react';
+import './CountyDropdown.scss';
 
-const CountyDropdown = ({countyNames, selectCounty}) => {
+const CountyDropdown = ({disableFirstVal, countyNames, selectCounty}) => {
     const makeDropdown = () => {
        return countyNames.sort().map(county => {
         return <option value={county} key={county}>{county}</option>
@@ -10,7 +11,7 @@ const CountyDropdown = ({countyNames, selectCounty}) => {
         return (
            <div data-testid="country-dropdown-container">
                <select onChange={(e) => selectCounty(e.target.value)} id="counties">
-               <option value='default' key='default'>Click here</option>
+               <option disabled={disableFirstVal}  value='default' key='default'>Click here</option>
                    {makeDropdown()}
                </select>
            </div> 
