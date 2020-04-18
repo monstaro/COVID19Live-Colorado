@@ -94,7 +94,7 @@ class CountyStats extends Component {
         >
           <h2 className="county-stats-header">County Stats</h2>
           <h3 className="county-stats-subheader">Select A County Below</h3>
-          <section className="county-picker"></section>
+          <section className="county-picker">
           <CountyDropdown
             disableFirstVal={this.state.firstDropdownDisabled}
             countyNames={this.getCountyNames()}
@@ -106,7 +106,9 @@ class CountyStats extends Component {
             countyPop={this.state.countyPop}
             countyName={this.state.countyName}
           />
-          <button
+        </section>
+        <button
+            hidden={!this.state.countyName}
             onClick={() => this.toggleBookmark()}
             className="bookmark-btn"
           >

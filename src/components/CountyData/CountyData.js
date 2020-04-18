@@ -26,7 +26,14 @@ class CountyData extends Component {
     }
   };
   render() {
-    return <div data-testid="county-data-container">{this.makeTable()}</div>;
+    return (
+      <div
+        data-testid="county-data-container"
+        className="county-data-container"
+      >
+        {this.makeTable()}
+      </div>
+    );
   }
 }
 
