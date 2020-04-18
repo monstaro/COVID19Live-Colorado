@@ -17,7 +17,7 @@ describe ('County Dropdown List', () => {
         </Router>
       </Provider>
     )
-    expect(getByTestId('country-dropdown-container')).toBeInTheDocument();
+    expect(getByTestId('county-dropdown-container')).toBeInTheDocument();
     expect(getByText('Adams County')).toBeInTheDocument()
     })
 })
