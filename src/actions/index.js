@@ -12,3 +12,8 @@ export const loadCountyDeaths = countyDeaths => ({
     type: 'LOAD_COUNTY_DEATHS',
     countyDeaths
 })
+
+export const saveBookmark = bookmark => ({
+    type: 'SAVE_BOOKMARK',
+    bookmark
+})

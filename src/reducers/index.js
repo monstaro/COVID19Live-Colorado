@@ -1,12 +1,15 @@
 import { combineReducers } from 'redux';
 import { countiesList } from './countiesList';
 import { healthDepts } from './healthDepts';
-import { countyDeaths } from './countyDeaths'
+import { countyDeaths } from './countyDeaths';
+import { bookmarks } from './bookmarks'
+
 
 const rootReducer = combineReducers({
     countiesList,
     healthDepts,
-    countyDeaths
+    countyDeaths,
+    bookmarks
 })
 
 export default rootReducer

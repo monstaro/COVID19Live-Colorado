@@ -1,7 +1,10 @@
 import React from "react";
 import "./Bookmarks.scss";
+import { connect } from 'react-redux';
 
-const Bookmarks = () => {
+
+const Bookmarks = (props) => {
+  console.log(props)
   return (
     <div className="bookmarks-container" data-testid="bookmarks-container">
       <h2 className="bookmarks-header">Bookmarks</h2>
@@ -9,4 +12,9 @@ const Bookmarks = () => {
   );
 };
 
-export default Bookmarks;
+
+const mapStateToProps = state => ({
+  bookmarks: state.bookmarks
+})
+
+export default connect(mapStateToProps)(Bookmarks);
