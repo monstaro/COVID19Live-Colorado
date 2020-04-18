@@ -10,13 +10,14 @@ const CountyDropdown = ({countyNames, selectCounty}) => {
         return (
            <div data-testid="country-dropdown-container">
                <select onChange={(e) => selectCounty(e.target.value)} id="counties">
+               <option value='default' key='default'>Click here</option>
                    {makeDropdown()}
                </select>
            </div> 
         )
     } else {
         return (
-            'Loading...'
+            ''
         )
     }
 }

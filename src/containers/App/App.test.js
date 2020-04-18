@@ -6,7 +6,7 @@ import { createStore } from 'redux';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux'
 import { fetchCounties } from '../../apiCalls'
-import { fetchHealthDepts } from '../../apiCalls'
+import { fetchHealthDepts, fetchCountyDeaths } from '../../apiCalls'
 
 jest.mock('../../apiCalls')
 
@@ -172,10 +172,14 @@ describe('App', () => {
       "phone": "(303) 220-9200"
     }
   ]
+
+  const mockCountyDeaths = []
+
+
   //execute mock function
   fetchCounties.mockResolvedValueOnce(mockCounties)
   fetchHealthDepts.mockResolvedValueOnce(mockHealthDepts)
-
+  fetchCountyDeaths.mockResolvedValueOnce(mockCountyDeaths)
   //render document with store
     // const { getByText } = render (
     //   <Provider store={store}>
