@@ -13,10 +13,13 @@ describe ('County Dropdown List', () => {
     const { getByTestId, getByText } = render (
       <Provider store = {store}>
         <Router>
-          <CountyDropdown countyNames={mockCountyNames}/>
+          <CountyDropdown 
+          selectCounty={(county) => selectCounty(county)}
+          countyNames={mockCountyNames}/>
         </Router>
       </Provider>
     )
+
     expect(getByTestId('county-dropdown-container')).toBeInTheDocument();
     expect(getByText('Adams County')).toBeInTheDocument()
     fireEvent.click(getByText('Click here'))
