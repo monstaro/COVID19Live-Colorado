@@ -29,37 +29,59 @@ class LocalHealth extends Component {
   };
   selectCounty = (county) => {
     if (county !== "default") {
-      this.setState(
-        {
-          county:
-            this.props.depts.find(
-              (countyObject) => countyObject.name === county
-            ),
-          firstDropdownDisabled: true,
-        }
-      );
+      this.setState({
+        county: this.props.depts.find(
+          (countyObject) => countyObject.name === county
+        ),
+        firstDropdownDisabled: true,
+      });
     } else {
       return;
     }
-  }
+  };
   displayDeptInfo = () => {
     if (this.state.county) {
-      return (<div>
-        <p>{this.state.county.name}</p>
-        <p>{this.state.county.phone}</p>
-        <p><a alt="county health dept website" href={this.state.county.website}>Website</a></p>
+      return (
+        <div data-testid="dept-info">
+          <p>{this.state.county.name}</p>
+          <p>{this.state.county.phone}</p>
+          <p>
+            <a
+              alt="county health dept website"
+              href={this.state.county.website}
+            >
+              Website
+            </a>
+          </p>
 
-        {this.state.county.twitter ? <p><a alt="twitter" href={this.state.county.twitter}>Twitter</a></p> : ''}
-        {this.state.county.facebook ? <p><a alt="facebook" href={this.state.county.facebook}>Facebook</a></p> : ''}
-
-        
-      </div>)
+          {this.state.county.twitter ? (
+            <p>
+              <a alt="twitter" href={this.state.county.twitter}>
+                Twitter
+              </a>
+            </p>
+          ) : (
+            ""
+          )}
+          {this.state.county.facebook ? (
+            <p>
+              <a alt="facebook" href={this.state.county.facebook}>
+                Facebook
+              </a>
+            </p>
+          ) : (
+            ""
+          )}
+        </div>
+      );
     } else {
-      return ''
+      return <div data-testid="dept-info">
+        
+      </div>;
     }
-  }
+  };
   render() {
-    console.log(this.state.county);
+    // console.log(this.state);
     if (this.props.depts.length) {
       return (
         <div
@@ -69,13 +91,13 @@ class LocalHealth extends Component {
           <h2 className="local-health-header">Local Health Depts</h2>
           <h3 className="">Select your county below:</h3>
           <section className="county-picker">
-          <CountyDropdown
-            disableFirstVal={this.state.firstDropdownDisabled}
-            countyNames={this.getCountyNames()}
-            selectCounty={(county) => this.selectCounty(county)}
-          />
+            <CountyDropdown
+              disableFirstVal={this.state.firstDropdownDisabled}
+              countyNames={this.getCountyNames()}
+              selectCounty={(county) => this.selectCounty(county)}
+            />
           </section>
-            {this.displayDeptInfo()}
+          {this.displayDeptInfo()}
         </div>
       );
     } else {

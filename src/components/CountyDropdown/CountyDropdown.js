@@ -4,7 +4,7 @@ import './CountyDropdown.scss';
 const CountyDropdown = ({disableFirstVal, countyNames, selectCounty}) => {
     const makeDropdown = () => {
        return countyNames.sort().map(county => {
-        return <option value={county} key={county}>{county}</option>
+        return <option data-testid={county} value={county} key={county}>{county}</option>
         })
     }
     if (makeDropdown()) {
@@ -18,7 +18,9 @@ const CountyDropdown = ({disableFirstVal, countyNames, selectCounty}) => {
         )
     } else {
         return (
-            ''
+            <div data-testid="county-dropdown-container">
+                
+            </div>
         )
     }
 }

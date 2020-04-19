@@ -117,6 +117,7 @@ class CountyStats extends Component {
         </div>
       );
     } else {
+      console.log(this.props)
       return (
         <div
           className="county-stats-container"
