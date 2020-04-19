@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitForElement } from '@testing-library/react';
 import App from './App';
 import rootReducer from '../../reducers';
 import { createStore } from 'redux';
@@ -13,7 +13,7 @@ jest.mock('../../apiCalls')
 
 
 describe('App', () => {
-  beforeEach(() => {
+  beforeEach( async () => {
     //create mock
     var mockCounties = [
       {
@@ -216,15 +216,46 @@ describe('App', () => {
         </Router>
       </Provider>
     )
-    fireEvent.click((getByText('About')))
-    expect(getByTestId('about-container')).toBeInTheDocument()
-    fireEvent.click((getByText('Staying Protected')))
-    expect(getByTestId('staying-protected-container')).toBeInTheDocument()
-    fireEvent.click((getByText('Your County Health Department')))
-    expect(getByTestId('local-health-container')).toBeInTheDocument()
-    fireEvent.click((getByText('Live County Stats')))
-    expect(getByTestId('county-stats-container')).toBeInTheDocument()
-    fireEvent.click((getByText('Bookmarked Counties')))
-    expect(getByTestId('bookmarks-container')).toBeInTheDocument()
+    fireEvent.click((getByText('About')));
+    expect(getByTestId('about-container')).toBeInTheDocument();
+    fireEvent.click((getByText('Staying Protected')));
+    expect(getByTestId('staying-protected-container')).toBeInTheDocument();
+    fireEvent.click((getByText('Your County Health Department')));
+    expect(getByTestId('local-health-container')).toBeInTheDocument();
+    fireEvent.click((getByText('Live County Stats')));
+    expect(getByTestId('county-stats-container')).toBeInTheDocument();
+    fireEvent.click((getByText('Bookmarked Counties')));
+    expect(getByTestId('bookmarks-container')).toBeInTheDocument();
+  })
+  it('should render info when clicking on the dropdown menu', async () => {
+    const mockDept = {
+      "id": "2",
+      "name": "Alamosa County",
+      "website": "https://www.colorado.gov/pacific/alamosacounty/public-health-2",
+      "twitter": "",
+      "facebook": "",
+      "rss": "",
+      "phone": "(719) 589-4848"
+    }
+    const store = createStore(rootReducer)
+    const { getByText, getByTestId } = render (
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    )
+
+    
+    fetchHealthDepts.mockResolvedValueOnce(mockDept)
+
+    fireEvent.click((getByText('Your County Health Department')));
+    const dropDown = await waitForElement(() => getByTestId('county-dropdown-container'));
+    expect(dropDown).toBeInTheDocument();
+    fireEvent.click((getByTestId('county-dropdown-container')));
+    let county = await waitForElement(() => (getByTestId('Alamosa County')))
+    expect(county).toBeInTheDocument();
+    fireEvent.click(county);
+    expect(getByTestId('dept-info')).toBeInTheDocument()
   })
 })
