@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./CountyData.scss";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class CountyData extends Component {
   makeTable() {
@@ -30,7 +30,7 @@ class CountyData extends Component {
     } else {
       return "";
     }
-  };
+  }
   render() {
     return (
       <div
@@ -50,5 +50,5 @@ CountyData.propTypes = {
   cases: PropTypes.number,
   countyPop: PropTypes.number,
   countyName: PropTypes.string,
-  lastUpdate: PropTypes.string
-}
+  lastUpdate: PropTypes.string,
+};

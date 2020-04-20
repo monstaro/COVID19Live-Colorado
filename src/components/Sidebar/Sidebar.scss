@@ -1,4 +1,4 @@
-@import '../../sass/_vars.scss';
+@import "../../sass/_vars.scss";
 
 .sidebar-container {
   background-color: $grey;
@@ -14,8 +14,6 @@
     text-decoration: none;
   }
 }
-
-
 
 .about,
 .staying-protected,
@@ -44,12 +42,12 @@
     font-family: "Roboto Mono", monospace;
   }
   .about,
-.staying-protected,
-.local-health,
-.county-stats,
-.bookmarked-counties {
-  color: #0788bf;
-  font-size: 1.2em;
-  margin: 5px 20px;
-}
+  .staying-protected,
+  .local-health,
+  .county-stats,
+  .bookmarked-counties {
+    color: #0788bf;
+    font-size: 1.2em;
+    margin: 5px 20px;
+  }
 }

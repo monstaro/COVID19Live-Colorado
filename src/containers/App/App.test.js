@@ -287,7 +287,7 @@ describe("App", () => {
     fireEvent.click(getByText("Live County Stats"));
     fireEvent.click(getByTestId("county-dropdown-container"));
     let countyData = await waitForElement(() => getByTestId("Cheyenne County"));
-    fireEvent.click(county);
+    fireEvent.click(countyData);
     expect(getByTestId("county-data-container")).toBeInTheDocument();
   });
   it("should be able to save/remove bookmarks", async () => {

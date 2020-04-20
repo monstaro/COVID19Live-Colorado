@@ -25,22 +25,22 @@ describe("Action Creators", () => {
       ],
     };
     const result = actions.loadCounties([
-        {
-          FULL_: "Saguache County",
-          County_Pos_Cases: 3,
-          County_Population: 6837,
-        },
-        {
-          FULL_: "Sedgwick County",
-          County_Pos_Cases: 0,
-          County_Population: 2275,
-        },
-        {
-          FULL_: "Cheyenne County",
-          County_Pos_Cases: 0,
-          County_Population: 1862,
-          County_Rate_Per_100_000: 0,
-        },
+      {
+        FULL_: "Saguache County",
+        County_Pos_Cases: 3,
+        County_Population: 6837,
+      },
+      {
+        FULL_: "Sedgwick County",
+        County_Pos_Cases: 0,
+        County_Population: 2275,
+      },
+      {
+        FULL_: "Cheyenne County",
+        County_Pos_Cases: 0,
+        County_Population: 1862,
+        County_Rate_Per_100_000: 0,
+      },
     ]);
     expect(result).toEqual(expectedAction);
   });
@@ -92,36 +92,34 @@ describe("Action Creators", () => {
     ]);
     expect(result).toEqual(expectedAction);
   });
-  it('should have a type SAVE_BOOKMARKS and deliver a payload', () => {
+  it("should have a type SAVE_BOOKMARKS and deliver a payload", () => {
     const expectedAction = {
       type: "SAVE_BOOKMARK",
-      bookmark: 
-        {
-          bookmarkBtnTxt: "Add To Bookmarks",
-          cases: 10,
-          countyName: "Baca County:",
-          countyPop: 3547,
-          deaths: 0,
-          firstDropdownDisabled: true,
-        },
-    }
-    const result = actions.saveBookmark(expectedAction.bookmark)
+      bookmark: {
+        bookmarkBtnTxt: "Add To Bookmarks",
+        cases: 10,
+        countyName: "Baca County:",
+        countyPop: 3547,
+        deaths: 0,
+        firstDropdownDisabled: true,
+      },
+    };
+    const result = actions.saveBookmark(expectedAction.bookmark);
     expect(result).toEqual(expectedAction);
-  })
-  it('should have a type REMOVE_BOOKMARKS and deliver a payload', () => {
+  });
+  it("should have a type REMOVE_BOOKMARKS and deliver a payload", () => {
     const expectedAction = {
       type: "REMOVE_BOOKMARK",
-      bookmark: 
-        {
-          bookmarkBtnTxt: "Remove From Bookmarks",
-          cases: 10,
-          countyName: "Baca County:",
-          countyPop: 3547,
-          deaths: 0,
-          firstDropdownDisabled: true,
-        },
-    }
-    const result = actions.removeBookmark(expectedAction.bookmark)
+      bookmark: {
+        bookmarkBtnTxt: "Remove From Bookmarks",
+        cases: 10,
+        countyName: "Baca County:",
+        countyPop: 3547,
+        deaths: 0,
+        firstDropdownDisabled: true,
+      },
+    };
+    const result = actions.removeBookmark(expectedAction.bookmark);
     expect(result).toEqual(expectedAction);
-  })
+  });
 });

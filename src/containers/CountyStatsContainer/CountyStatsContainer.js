@@ -35,8 +35,9 @@ class CountyStats extends Component {
             this.props.counties.find(
               (countyObject) => countyObject.FULL_ === county
             ).FULL_ + ":",
-          deaths: this.returnCurrentCountyInfo(county, 'deaths'),
-          date: this.props.countyDeaths[this.props.countyDeaths.length - 1].date,
+          deaths: this.returnCurrentCountyInfo(county, "deaths"),
+          date: this.props.countyDeaths[this.props.countyDeaths.length - 1]
+            .date,
           cases: this.props.counties.find(
             (countyObject) => countyObject.FULL_ === county
           ).County_Pos_Cases,

@@ -1,34 +1,32 @@
-import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from '../../reducers';
-import CountyDropdown from './CountyDropdown';
+import { Provider } from "react-redux";
+import { createStore } from "redux";
+import rootReducer from "../../reducers";
+import CountyDropdown from "./CountyDropdown";
 
-describe ('County Dropdown List', () => {
-    it('should render counties', () => {
-    const mockCountyNames = ['Adams County', 'Denver County']
-    const store = createStore(rootReducer)
-    const { getByTestId, getByText } = render (
-      <Provider store = {store}>
+describe("County Dropdown List", () => {
+  it("should render counties", () => {
+    const mockCountyNames = ["Adams County", "Denver County"];
+    const store = createStore(rootReducer);
+    const { getByTestId, getByText } = render(
+      <Provider store={store}>
         <Router>
-          <CountyDropdown 
-          selectCounty={(county) => selectCounty(county)}
-          countyNames={mockCountyNames}/>
+          <CountyDropdown countyNames={mockCountyNames} />
         </Router>
       </Provider>
-    )
+    );
 
-    expect(getByTestId('county-dropdown-container')).toBeInTheDocument();
-    expect(getByText('Adams County')).toBeInTheDocument()
-    fireEvent.click(getByText('Click here'))
-    fireEvent.click(getByTestId('Adams County'))
-    expect(getByTestId('Adams County')).toBeInTheDocument()
-    })
-    it('should be able to make a dropdown menu', () => {
-      const makeDropdown = jest.fn()
-      makeDropdown()
-      expect(makeDropdown).toHaveBeenCalled()
-    })
-})
+    expect(getByTestId("county-dropdown-container")).toBeInTheDocument();
+    expect(getByText("Adams County")).toBeInTheDocument();
+    fireEvent.click(getByText("Click here"));
+    fireEvent.click(getByTestId("Adams County"));
+    expect(getByTestId("Adams County")).toBeInTheDocument();
+  });
+  it("should be able to make a dropdown menu", () => {
+    const makeDropdown = jest.fn();
+    makeDropdown();
+    expect(makeDropdown).toHaveBeenCalled();
+  });
+});

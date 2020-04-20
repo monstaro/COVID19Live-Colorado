@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Redirect } from "react-router-dom";
 import Welcome from "../../components/Welcome/Welcome";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -14,6 +14,7 @@ import CountyStatsContainer from "../CountyStatsContainer/CountyStatsContainer";
 import { loadCounties, loadCountyDeaths } from "../../actions";
 import { fetchCounties, fetchCountyDeaths } from "../../apiCalls";
 import { connect } from "react-redux";
+import PropTypes from 'prop-types'
 
 class App extends Component {
   componentDidMount() {
@@ -73,3 +74,10 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(null, mapDispatchToProps)(App);
+
+App.propTypes = {
+  loadCounties: PropTypes.func,
+  loadCountyDeaths: PropTypes.func
+}
+  
+  

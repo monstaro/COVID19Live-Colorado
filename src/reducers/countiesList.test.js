@@ -170,7 +170,7 @@ describe("countiesList", () => {
         Shape__Area: 7613550869.75391,
         Shape__Length: 373455.831824096,
         State_Number_Outbreaks: 83,
-      }
+      },
     ];
     const result = countiesList([], mockAction);
     expect(result).toEqual(mockCounties);

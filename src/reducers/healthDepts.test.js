@@ -52,9 +52,9 @@ describe("healthDepts", () => {
         facebook: "",
         rss: "",
         phone: "(719) 589-4848",
-      }
-    ]
-    const result = healthDepts([], mockAction)
-    expect(result).toEqual(mockDepts)
+      },
+    ];
+    const result = healthDepts([], mockAction);
+    expect(result).toEqual(mockDepts);
   });
 });
