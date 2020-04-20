@@ -102,13 +102,13 @@ class CountyStats extends Component {
               countyNames={this.getCountyNames()}
               selectCounty={(county) => this.selectCounty(county)}
             />
+              </section>
             <CountyData
               deaths={this.state.deaths}
               cases={this.state.cases}
               countyPop={this.state.countyPop}
               countyName={this.state.countyName}
             />
-          </section>
           <button
             hidden={!this.state.countyName}
             onClick={() => this.toggleBookmark()}
