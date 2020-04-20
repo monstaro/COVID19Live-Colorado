@@ -1,10 +1,17 @@
-@import '../../sass/mixins';
-@import '../../sass/vars';
+@import "../../sass/mixins";
+@import "../../sass/vars";
 
 .welcome-container {
-   @include main-area-container()
+  @include main-area-container();
 }
 
 .welcome-header {
-   color: $grey; 
+  color: $grey;
+}
+
+@media only screen and (max-width: 420px) {
+  .welcome-container {
+    background: $light-blue;
+    height: 100vh;
+  }
 }

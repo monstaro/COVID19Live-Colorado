@@ -32,3 +32,14 @@
 .main-area {
   grid-area: main;
 }
+
+
+@media only screen and (max-width: 420px) {
+  .App {
+    background-color: #00b2ff;
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Mono", monospace;
+    height: 100vh;
+  }
+}

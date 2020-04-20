@@ -1,10 +1,17 @@
-@import '../../sass/mixins';
-@import '../../sass/vars';
+@import "../../sass/mixins";
+@import "../../sass/vars";
 
 .about-container {
-    @include main-area-container()
+  @include main-area-container();
 }
 
 .about-header {
-   color: $grey; 
+  color: $grey;
+}
+
+@media only screen and (max-width: 420px) {
+  .about-container {
+    background-color: $light-blue;
+    height: 100vh;
+  }
 }
