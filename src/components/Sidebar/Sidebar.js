@@ -10,8 +10,6 @@ class Sidebar extends Component {
     }
   }
   addActiveClass = (e) => {
-    const clicked = e.target.id
-    console.log(e.target.id)
     this.setState({
       currentPage: e.target.id
     })

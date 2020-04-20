@@ -24,6 +24,7 @@ class CountyData extends Component {
               </tr>
             </thead>
           </table>
+          Last Update {this.props.lastUpdate}
         </div>
       );
     } else {
@@ -48,5 +49,6 @@ CountyData.propTypes = {
   deaths: PropTypes.number,
   cases: PropTypes.number,
   countyPop: PropTypes.number,
-  countyName: PropTypes.string
+  countyName: PropTypes.string,
+  lastUpdate: PropTypes.string
 }

@@ -7,6 +7,7 @@ export const fetchCounties = async () => {
   );
   const data = await response.json();
   const filteredData = data.features.map((entries) => ({
+    
     County_Population: entries.properties.County_Population,
     County_Pos_Cases: entries.properties.County_Pos_Cases,
     FULL_: entries.properties.FULL_,
