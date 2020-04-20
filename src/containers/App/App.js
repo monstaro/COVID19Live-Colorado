@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./App.css";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import Welcome from "../../components/Welcome/Welcome";
 import Header from "../../components/Header/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
@@ -28,13 +28,11 @@ class App extends Component {
         <Header className="header" />
         <Nav className="nav" />
         <Sidebar className="sidebar" />
-        <Switch>
-          <Route
-            path="/"
-            exact
-            component={() => <Welcome className="main-area" />}
-          />
-        </Switch>
+        <Route
+          path="/"
+          exact
+          component={() => <Welcome className="main-area" />}
+        />
         <Route
           path="/about"
           exact
@@ -60,7 +58,16 @@ class App extends Component {
           exact
           component={() => <LocalHealth className="main-area" />}
         />
-        <Route path="/welcome" exact component={() => <Welcome />} />
+        <Route
+          path="/welcome"
+          exact
+          component={() => <Welcome className="main-area" />}
+        />
+
+        <Route exact path="/:any">
+          {<Redirect to="/welcome" />}
+        </Route>
+
         <Footer className="footer" />
       </div>
     );
