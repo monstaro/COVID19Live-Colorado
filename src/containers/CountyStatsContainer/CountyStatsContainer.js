@@ -35,7 +35,8 @@ class CountyStats extends Component {
             this.props.counties.find(
               (countyObject) => countyObject.FULL_ === county
             ).FULL_ + ":",
-          deaths: this.returnCurrentCountyInfo(county),
+          deaths: this.returnCurrentCountyInfo(county, 'deaths'),
+          date: this.props.countyDeaths[this.props.countyDeaths.length - 1].date,
           cases: this.props.counties.find(
             (countyObject) => countyObject.FULL_ === county
           ).County_Pos_Cases,
@@ -58,13 +59,13 @@ class CountyStats extends Component {
       return;
     }
   }
-  returnCurrentCountyInfo(county) {
-    let a = this.props.countyDeaths.filter(
-      (co) => co.county === county.split(" ")[0]
+  returnCurrentCountyInfo(county, type) {
+    let findCounty = this.props.countyDeaths.filter(
+      (entry) => entry.county === county.split(" ")[0]
     );
-    let b = a[a.length - 1];
+    let b = findCounty[findCounty.length - 1];
     if (b) {
-      return parseInt(b.deaths);
+      return parseInt(b[type]);
     } else {
       return 0;
     }
@@ -107,6 +108,7 @@ class CountyStats extends Component {
             cases={this.state.cases}
             countyPop={this.state.countyPop}
             countyName={this.state.countyName}
+            lastUpdate={this.state.date}
           />
           <button
             hidden={!this.state.countyName}
