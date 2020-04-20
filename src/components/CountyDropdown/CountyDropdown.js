@@ -1,10 +1,11 @@
 import React from 'react';
 import './CountyDropdown.scss';
+import PropTypes from 'prop-types';
 
 const CountyDropdown = ({disableFirstVal, countyNames, selectCounty}) => {
     const makeDropdown = () => {
        return countyNames.sort().map(county => {
-        return <option data-testid={county} value={county} key={county}>{county}</option>
+        return <option data-testid={county} value={county} key={county + 'key'}>{county}</option>
         })
     }
     if (makeDropdown()) {
@@ -26,3 +27,9 @@ const CountyDropdown = ({disableFirstVal, countyNames, selectCounty}) => {
 }
 
 export default CountyDropdown
+
+CountyDropdown.propTypes = {
+    disableFirstVal: PropTypes.bool,
+    countyNames: PropTypes.array,
+    selectCounty: PropTypes.func,
+  }

@@ -2,6 +2,7 @@ import React from "react";
 import "./Bookmarks.scss";
 import { connect } from "react-redux";
 import CountyData from "../../components/CountyData/CountyData";
+import PropTypes from 'prop-types';
 
 const Bookmarks = (props) => {
   if (props.bookmarks.length) {
@@ -33,3 +34,9 @@ const mapStateToProps = (state) => ({
 });
 
 export default connect(mapStateToProps)(Bookmarks);
+
+Bookmarks.propTypes = {
+  className: PropTypes.string,
+  bookmarks: PropTypes.array,
+  dispatcj: PropTypes.func,
+}

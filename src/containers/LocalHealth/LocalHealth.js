@@ -82,7 +82,6 @@ class LocalHealth extends Component {
     }
   };
   render() {
-    console.log(this.props);
     if (this.props.depts.length) {
       return (
         <div
@@ -129,5 +128,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocalHealth);
 
 LocalHealth.propTypes = {
   className: PropTypes.string,
-  removeFromFavorites: PropTypes.func
+  depts: PropTypes.array,
+  loadHealthDepts: PropTypes.func
 }

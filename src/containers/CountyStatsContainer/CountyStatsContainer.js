@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import CountyDropdown from "../../components/CountyDropdown/CountyDropdown";
 import CountyData from "../../components/CountyData/CountyData";
 import { saveBookmark, removeBookmark } from "../../actions";
+import PropTypes from "prop-types";
 
 class CountyStats extends Component {
   constructor(props) {
@@ -88,6 +89,7 @@ class CountyStats extends Component {
   render() {
     if (this.props.counties.length) {
       return (
+
         <div
           className="county-stats-container"
           data-testid="county-stats-container"
@@ -95,19 +97,19 @@ class CountyStats extends Component {
           <h2 className="county-stats-header">County Stats</h2>
           <h3 className="county-stats-subheader">Select A County Below</h3>
           <section className="county-picker">
-          <CountyDropdown
-            disableFirstVal={this.state.firstDropdownDisabled}
-            countyNames={this.getCountyNames()}
-            selectCounty={(county) => this.selectCounty(county)}
-          />
-          <CountyData
-            deaths={this.state.deaths}
-            cases={this.state.cases}
-            countyPop={this.state.countyPop}
-            countyName={this.state.countyName}
-          />
-        </section>
-        <button
+            <CountyDropdown
+              disableFirstVal={this.state.firstDropdownDisabled}
+              countyNames={this.getCountyNames()}
+              selectCounty={(county) => this.selectCounty(county)}
+            />
+            <CountyData
+              deaths={this.state.deaths}
+              cases={this.state.cases}
+              countyPop={this.state.countyPop}
+              countyName={this.state.countyName}
+            />
+          </section>
+          <button
             hidden={!this.state.countyName}
             onClick={() => this.toggleBookmark()}
             className="bookmark-btn"
@@ -117,7 +119,6 @@ class CountyStats extends Component {
         </div>
       );
     } else {
-      console.log(this.props)
       return (
         <div
           className="county-stats-container"
@@ -142,3 +143,11 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CountyStats);
+
+CountyStats.propTypes = {
+  className: PropTypes.string,
+  counties: PropTypes.array,
+  countyDeaths: PropTypes.array,
+  bookmarks: PropTypes.array,
+  saveBookmark: PropTypes.func
+};
