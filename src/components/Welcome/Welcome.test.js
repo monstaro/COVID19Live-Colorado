@@ -22,6 +22,5 @@ describe("Welcome", () => {
         "Our mission is to bring at-risk residents of Colorado the most up-to-date information for their county."
       )
     ).toBeInTheDocument();
-    
   });
 });

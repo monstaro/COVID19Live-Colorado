@@ -4,7 +4,7 @@ import { fetchHealthDepts } from "../../apiCalls";
 import { loadHealthDepts } from "../../actions";
 import { connect } from "react-redux";
 import CountyDropdown from "../../components/CountyDropdown/CountyDropdown";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 class LocalHealth extends Component {
   constructor(props) {
@@ -14,12 +14,12 @@ class LocalHealth extends Component {
       firstDropdownDisabled: false,
     };
   }
-  componentDidMount = () => {
+  componentDidMount() {
     fetchHealthDepts()
       .then((data) => this.props.loadHealthDepts(data))
       .catch((err) => console.error(err.message));
   };
-  getCountyNames = () => {
+  getCountyNames() {
     let counties;
     if (this.props.depts.length) {
       counties = this.props.depts.map((county) => {
@@ -76,9 +76,7 @@ class LocalHealth extends Component {
         </div>
       );
     } else {
-      return <div data-testid="dept-info">
-
-      </div>;
+      return <div data-testid="dept-info"></div>;
     }
   };
   render() {
@@ -129,5 +127,5 @@ export default connect(mapStateToProps, mapDispatchToProps)(LocalHealth);
 LocalHealth.propTypes = {
   className: PropTypes.string,
   depts: PropTypes.array,
-  loadHealthDepts: PropTypes.func
-}
+  loadHealthDepts: PropTypes.func,
+};

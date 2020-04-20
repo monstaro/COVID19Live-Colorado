@@ -1,8 +1,8 @@
-@import '../../sass/vars';
-@import '../../sass/mixins';
+@import "../../sass/vars";
+@import "../../sass/mixins";
 
 .nav-container {
-  @include header-border-position($light-blue)
+  @include header-border-position($light-blue);
 }
 
 .nav-container:before {

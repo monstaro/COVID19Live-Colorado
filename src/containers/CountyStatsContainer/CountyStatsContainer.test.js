@@ -1,13 +1,10 @@
 import React from "react";
-import { render, waitForElement, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "../../reducers";
 import CountyStatsContainer from "./CountyStatsContainer";
-import App from "./../App/App";
-import CountyData from "./../../components/CountyData/CountyData";
-
 import { fetchCounties } from "../../apiCalls";
 import { fetchCountyDeaths } from "../../apiCalls";
 
@@ -172,7 +169,7 @@ describe("County Stats", () => {
 
   it("should render county stats info", () => {
     const store = createStore(rootReducer);
-    const { getByTestId, getByText } = render(
+    const { getByTestId } = render(
       <Provider store={store}>
         <Router>
           <CountyStatsContainer />
@@ -182,17 +179,20 @@ describe("County Stats", () => {
     expect(getByTestId("county-stats-container")).toBeInTheDocument();
   });
   it("should be able to select a county", async () => {
-    const initialState = { countiesList: [{
-      "County_Population": 6837,
-      "County_Pos_Cases": 3,
-      "FULL_": "Saguache County",
-    }]}
+    const initialState = {
+      countiesList: [
+        {
+          County_Population: 6837,
+          County_Pos_Cases: 3,
+          FULL_: "Saguache County",
+        },
+      ],
+    };
     const store = createStore(rootReducer, initialState);
     const { getAllByText, getByTestId, getByText } = render(
       <Provider store={store}>
         <Router>
-          <CountyStatsContainer 
-            />
+          <CountyStatsContainer />
         </Router>
       </Provider>
     );
@@ -201,7 +201,6 @@ describe("County Stats", () => {
     expect(selectCounty).toHaveBeenCalled();
     expect(selectCounty).toHaveBeenCalledTimes(1);
     expect(selectCounty).toBeCalledWith("Saguache County");
-    expect(getByTestId("Saguache County")).toBeInTheDocument()
-
+    expect(getByTestId("Saguache County")).toBeInTheDocument();
   });
 });

@@ -1,17 +1,17 @@
-@import '../../sass/mixins';
-@import '../../sass/vars';
+@import "../../sass/mixins";
+@import "../../sass/vars";
 
 .staying-protected-container {
-    @include main-area-container()
+  @include main-area-container();
 }
 
 .staying-protected-header {
-   color: $grey; 
+  color: $grey;
 }
 
 @media only screen and (max-width: 420px) {
-    .staying-protected-container {
-      background-color: $light-blue;
-      height: 100vh;
-    }
+  .staying-protected-container {
+    background-color: $light-blue;
+    height: 100vh;
   }
+}

@@ -8,7 +8,6 @@ import LocalHealth from "./LocalHealth";
 import { fetchHealthDepts } from "../../apiCalls";
 jest.mock("../../apiCalls");
 
-
 describe("Local Health", () => {
   beforeEach(() => {
     const mockHealthDepts = [
@@ -30,22 +29,25 @@ describe("Local Health", () => {
         facebook: "",
         rss: "",
         phone: "(719) 589-4848",
-      }]
+      },
+    ];
 
-      fetchHealthDepts.mockResolvedValueOnce(mockHealthDepts);
-
-  })
+    fetchHealthDepts.mockResolvedValueOnce(mockHealthDepts);
+  });
   it("should render", () => {
-    const initState = { healthDepts: [{
-      "id": "1",
-      "name": "Adams County",
-      "website": "http://www.tchd.org/",
-      "twitter": "https://twitter.com/TCHDHealth",
-      "facebook": "https://www.facebook.com/cotchd/",
-      "rss": "",
-      "phone": "(303) 220-9200"
-    }]
-  }
+    const initState = {
+      healthDepts: [
+        {
+          id: "1",
+          name: "Adams County",
+          website: "http://www.tchd.org/",
+          twitter: "https://twitter.com/TCHDHealth",
+          facebook: "https://www.facebook.com/cotchd/",
+          rss: "",
+          phone: "(303) 220-9200",
+        },
+      ],
+    };
     const store = createStore(rootReducer, initState);
     const { getByTestId } = render(
       <Provider store={store}>
@@ -56,19 +58,21 @@ describe("Local Health", () => {
     );
     expect(getByTestId("local-health-container")).toBeInTheDocument();
     expect(getByTestId("Adams County")).toBeInTheDocument();
-
   });
   it("should contain dept info if it has state", () => {
-    const initState = { healthDepts: [{
-      "id": "1",
-      "name": "Adams County",
-      "website": "http://www.tchd.org/",
-      "twitter": "https://twitter.com/TCHDHealth",
-      "facebook": "https://www.facebook.com/cotchd/",
-      "rss": "",
-      "phone": "(303) 220-9200"
-    }]
-  }
+    const initState = {
+      healthDepts: [
+        {
+          id: "1",
+          name: "Adams County",
+          website: "http://www.tchd.org/",
+          twitter: "https://twitter.com/TCHDHealth",
+          facebook: "https://www.facebook.com/cotchd/",
+          rss: "",
+          phone: "(303) 220-9200",
+        },
+      ],
+    };
     const store = createStore(rootReducer, initState);
     const { getByTestId } = render(
       <Provider store={store}>
@@ -77,8 +81,8 @@ describe("Local Health", () => {
         </Router>
       </Provider>
     );
-    expect(getByTestId('dept-info')).toBeInTheDocument()
-  })
+    expect(getByTestId("dept-info")).toBeInTheDocument();
+  });
   // it("should not contain dept info if it has no state", () => {
   //   const initState = { healthDepts: []
   // }
