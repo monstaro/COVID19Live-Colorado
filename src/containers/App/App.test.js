@@ -281,4 +281,23 @@ describe("App", () => {
     expect(getByTestId('Cheyenne County')).toBeInTheDocument();
     expect(getByTestId('county-data-container')).toBeInTheDocument();
   });
+  it('should be able to save/remove bookmarks', async () => {
+    const store = createStore(rootReducer);
+    const { getByText, getByTestId } = render(
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
+    );
+    fireEvent.click(getByText("Live County Stats"));
+    fireEvent.click(await waitForElement(() => getByTestId("county-dropdown-container")));
+    let countyData = await waitForElement(() => getByTestId("Cheyenne County"));
+    fireEvent.click(countyData);
+    expect(getByText('Add To Bookmarks')).toBeInTheDocument();
+    fireEvent.click(getByText('Add To Bookmarks'));
+    expect(getByText('Remove From Bookmarks')).toBeInTheDocument();
+    fireEvent.click(getByText('Remove From Bookmarks'));
+    expect(getByText('Add To Bookmarks')).toBeInTheDocument();
+  })
 });
