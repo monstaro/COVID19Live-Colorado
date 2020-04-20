@@ -221,8 +221,6 @@ describe("App", () => {
     ).toBeInTheDocument();
   });
   it("should render each component on sidebar when clicked", () => {
-    // const store = createStore(rootReducer)
-    // fetchCounties.mockResolvedValueOnce(mockCounties)
     const store = createStore(rootReducer);
     const { getByText, getByTestId } = render(
       <Provider store={store}>
@@ -278,10 +276,10 @@ describe("App", () => {
     fireEvent.click(getByTestId("county-dropdown-container"));
     let countyData = await waitForElement(() => getByTestId("Cheyenne County"));
     fireEvent.click(county);
-    expect(getByTestId('Cheyenne County')).toBeInTheDocument();
-    expect(getByTestId('county-data-container')).toBeInTheDocument();
+    expect(getByTestId("Cheyenne County")).toBeInTheDocument();
+    expect(getByTestId("county-data-container")).toBeInTheDocument();
   });
-  it('should be able to save/remove bookmarks', async () => {
+  it("should be able to save/remove bookmarks", async () => {
     const store = createStore(rootReducer);
     const { getByText, getByTestId } = render(
       <Provider store={store}>
@@ -291,13 +289,15 @@ describe("App", () => {
       </Provider>
     );
     fireEvent.click(getByText("Live County Stats"));
-    fireEvent.click(await waitForElement(() => getByTestId("county-dropdown-container")));
+    fireEvent.click(
+      await waitForElement(() => getByTestId("county-dropdown-container"))
+    );
     let countyData = await waitForElement(() => getByTestId("Cheyenne County"));
     fireEvent.click(countyData);
-    expect(getByText('Add To Bookmarks')).toBeInTheDocument();
-    fireEvent.click(getByText('Add To Bookmarks'));
-    expect(getByText('Remove From Bookmarks')).toBeInTheDocument();
-    fireEvent.click(getByText('Remove From Bookmarks'));
-    expect(getByText('Add To Bookmarks')).toBeInTheDocument();
-  })
+    expect(getByText("Add To Bookmarks")).toBeInTheDocument();
+    fireEvent.click(getByText("Add To Bookmarks"));
+    expect(getByText("Remove From Bookmarks")).toBeInTheDocument();
+    fireEvent.click(getByText("Remove From Bookmarks"));
+    expect(getByText("Add To Bookmarks")).toBeInTheDocument();
+  });
 });
