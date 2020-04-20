@@ -250,7 +250,20 @@ describe("App", () => {
       rss: "",
       phone: "(719) 589-4848",
     };
-    const store = createStore(rootReducer);
+    const initState = {
+      bookmarks: [
+        {
+          countyName: "Cheyenne County:",
+          deaths: 0,
+          cases: 0,
+          countyPop: 1862,
+          firstDropdownDisabled: true,
+          bookmarkBtnTxt: "Add To Bookmarks",
+          date: "2020-04-19",
+        },
+      ],
+    };
+    const store = createStore(rootReducer, initState);
     const { getByText, getByTestId } = render(
       <Provider store={store}>
         <Router>
@@ -275,11 +288,23 @@ describe("App", () => {
     fireEvent.click(getByTestId("county-dropdown-container"));
     let countyData = await waitForElement(() => getByTestId("Cheyenne County"));
     fireEvent.click(county);
-    expect(getByTestId("Cheyenne County")).toBeInTheDocument();
     expect(getByTestId("county-data-container")).toBeInTheDocument();
   });
   it("should be able to save/remove bookmarks", async () => {
-    const store = createStore(rootReducer);
+    const initState = {
+      bookmarks: [
+        {
+          countyName: "Cheyenne County:",
+          deaths: 0,
+          cases: 0,
+          countyPop: 1862,
+          firstDropdownDisabled: true,
+          bookmarkBtnTxt: "Add To Bookmarks",
+          date: "2020-04-19",
+        },
+      ],
+    };
+    const store = createStore(rootReducer, initState);
     const { getByText, getByTestId } = render(
       <Provider store={store}>
         <Router>
@@ -298,5 +323,8 @@ describe("App", () => {
     expect(getByText("Remove From Bookmarks")).toBeInTheDocument();
     fireEvent.click(getByText("Remove From Bookmarks"));
     expect(getByText("Add To Bookmarks")).toBeInTheDocument();
+    fireEvent.click(getByText("Add To Bookmarks"));
+    fireEvent.click(getByTestId("bookmarked-counties inactive-link"));
+    expect(getByText("Cheyenne County:")).toBeInTheDocument();
   });
 });
