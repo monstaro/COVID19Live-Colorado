@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
@@ -13,11 +13,17 @@ describe ('County Dropdown List', () => {
     const { getByTestId, getByText } = render (
       <Provider store = {store}>
         <Router>
-          <CountyDropdown countyNames={mockCountyNames}/>
+          <CountyDropdown 
+          selectCounty={(county) => selectCounty(county)}
+          countyNames={mockCountyNames}/>
         </Router>
       </Provider>
     )
+
     expect(getByTestId('county-dropdown-container')).toBeInTheDocument();
     expect(getByText('Adams County')).toBeInTheDocument()
+    fireEvent.click(getByText('Click here'))
+    fireEvent.click(getByTestId('Adams County'))
+    expect(getByTestId('Adams County')).toBeInTheDocument()
     })
 })
