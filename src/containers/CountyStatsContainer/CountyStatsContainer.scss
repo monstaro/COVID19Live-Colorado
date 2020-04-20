@@ -19,3 +19,10 @@
     @include btn(black, black);
     margin: 50px auto;
 }
+
+@media only screen and (max-width: 420px) {
+    .county-stats-container {
+        background-color: $light-blue;
+        height: 100vh;
+    }
+}

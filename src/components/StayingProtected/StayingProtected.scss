@@ -8,3 +8,10 @@
 .staying-protected-header {
    color: $grey; 
 }
+
+@media only screen and (max-width: 420px) {
+    .staying-protected-container {
+      background-color: $light-blue;
+      height: 100vh;
+    }
+  }

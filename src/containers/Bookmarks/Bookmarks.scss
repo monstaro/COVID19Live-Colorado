@@ -9,3 +9,10 @@
 .bookmarks-header {
    color: $grey; 
 }
+
+@media only screen and (max-width: 420px) {
+    .bookmarks-container {
+        background: $light-blue;
+        height: 100vh;
+    }
+}

@@ -34,6 +34,22 @@
 }
 
 .inactive-link {
-  border-right: 2px solid $grey;
+  border-right: 2px solid $sidebar-blue;
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 420px) {
+  .sidebar-container {
+    flex-direction: column;
+    font-family: "Roboto Mono", monospace;
+  }
+  .about,
+.staying-protected,
+.local-health,
+.county-stats,
+.bookmarked-counties {
+  color: #0788bf;
+  font-size: 1.2em;
+  margin: 5px 20px;
+}
 }

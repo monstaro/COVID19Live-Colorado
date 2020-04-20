@@ -23,3 +23,10 @@
   font-size: 28px;
   text-align: right;
 }
+
+@media only screen and (max-width: 420px) {
+  .header-container {
+    height: 100px;
+    padding: 0px 0;
+  }
+}
