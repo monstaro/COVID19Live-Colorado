@@ -19,7 +19,7 @@ export const fetchHealthDepts = async () => {
     "https://postman-data-api-templates.github.io/county-health-departments/api/colorado.json"
   );
   const data = await response.json();
-  let a = data.map((item) => {
+  data.map((item) => {
     if (item.name === "City and County of Denver") {
       item.name = "Denver County";
     }
@@ -27,7 +27,6 @@ export const fetchHealthDepts = async () => {
       item.name = "Denver Broomfield";
     }
   });
-  console.log(a, data);
   return data;
 };
 

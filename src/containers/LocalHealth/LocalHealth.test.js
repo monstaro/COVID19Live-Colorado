@@ -5,8 +5,36 @@ import { Provider } from "react-redux";
 import { createStore } from "redux";
 import rootReducer from "../../reducers";
 import LocalHealth from "./LocalHealth";
+import { fetchHealthDepts } from "../../apiCalls";
+jest.mock("../../apiCalls");
+
 
 describe("Local Health", () => {
+  beforeEach(() => {
+    const mockHealthDepts = [
+      {
+        id: "1",
+        name: "Adams County",
+        website: "http://www.tchd.org/",
+        twitter: "https://twitter.com/TCHDHealth",
+        facebook: "https://www.facebook.com/cotchd/",
+        rss: "",
+        phone: "(303) 220-9200",
+      },
+      {
+        id: "2",
+        name: "Alamosa County",
+        website:
+          "https://www.colorado.gov/pacific/alamosacounty/public-health-2",
+        twitter: "",
+        facebook: "",
+        rss: "",
+        phone: "(719) 589-4848",
+      }]
+
+      fetchHealthDepts.mockResolvedValueOnce(mockHealthDepts);
+
+  })
   it("should render", () => {
     const store = createStore(rootReducer);
     const { getByTestId } = render(
@@ -18,14 +46,5 @@ describe("Local Health", () => {
     );
     expect(getByTestId("local-health-container")).toBeInTheDocument();
   });
-  it("should be able to select a county", () => {
-    const store = createStore(rootReducer);
-    const { getByTestId } = render(
-      <Provider store={store}>
-        <Router>
-          <LocalHealth />
-        </Router>
-      </Provider>
-    );
-  });
+
 });

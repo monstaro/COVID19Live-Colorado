@@ -20,8 +20,7 @@ class App extends Component {
     fetchCounties()
       .then((data) => this.props.loadCounties(data))
       .catch((err) => console.error(err.message));
-    fetchCountyDeaths()
-      .then(data => this.props.loadCountyDeaths(data))
+    fetchCountyDeaths().then((data) => this.props.loadCountyDeaths(data));
   }
   render() {
     return (
@@ -70,7 +69,7 @@ class App extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   loadCounties: (counties) => dispatch(loadCounties(counties)),
-  loadCountyDeaths: (countyDeaths) => dispatch(loadCountyDeaths(countyDeaths))
+  loadCountyDeaths: (countyDeaths) => dispatch(loadCountyDeaths(countyDeaths)),
 });
 
 export default connect(null, mapDispatchToProps)(App);

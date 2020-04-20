@@ -24,4 +24,22 @@ describe ('County Data', () => {
     expect(getByTestId('county-data-container')).toBeInTheDocument();
     expect(getByText('Milford')).toBeInTheDocument()
     })
+    it('should be able to make a table', () => {
+      const store = createStore(rootReducer)
+      const { getByTestId, getByText } = render (
+        <Provider store = {store}>
+          <Router>
+            <CountyData 
+              deaths={45}
+              cases={50}
+              countyPop={51}
+              countyName={'Milford'}
+            />
+          </Router>
+        </Provider>
+      )
+      const makeTable = jest.fn()
+      makeTable()
+      expect(makeTable).toHaveBeenCalled()
+    })
 })

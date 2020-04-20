@@ -18,7 +18,7 @@ class CountyStats extends Component {
       bookmarkBtnTxt: "Add To Bookmarks",
     };
   }
-  getCountyNames = () => {
+  getCountyNames() {
     let counties;
     if (this.props.counties.length) {
       counties = this.props.counties.map((county) => {
@@ -27,7 +27,7 @@ class CountyStats extends Component {
     }
     return counties;
   };
-  selectCounty = (county) => {
+  selectCounty(county) {
     if (county !== "default") {
       this.setState(
         {
@@ -58,7 +58,7 @@ class CountyStats extends Component {
       return;
     }
   };
-  returnCurrentCountyInfo = (county) => {
+  returnCurrentCountyInfo(county) {
     let a = this.props.countyDeaths.filter(
       (co) => co.county === county.split(" ")[0]
     );
@@ -69,7 +69,7 @@ class CountyStats extends Component {
       return 0;
     }
   };
-  toggleBookmark = () => {
+  toggleBookmark() {
     if (
       this.props.bookmarks.find(
         (bookmark) => bookmark.countyName === this.state.countyName
@@ -149,5 +149,6 @@ CountyStats.propTypes = {
   counties: PropTypes.array,
   countyDeaths: PropTypes.array,
   bookmarks: PropTypes.array,
-  saveBookmark: PropTypes.func
+  saveBookmark: PropTypes.func,
+  removeBookmark: PropTypes.func
 };
