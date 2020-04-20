@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/covid19-live-colorado/static/css/main.60be3e8b.chunk.css",
+    "main.js": "/covid19-live-colorado/static/js/main.a0d07a39.chunk.js",
+    "main.js.map": "/covid19-live-colorado/static/js/main.a0d07a39.chunk.js.map",
+    "runtime-main.js": "/covid19-live-colorado/static/js/runtime-main.57a40ad4.js",
+    "runtime-main.js.map": "/covid19-live-colorado/static/js/runtime-main.57a40ad4.js.map",
+    "static/js/2.6ce948f5.chunk.js": "/covid19-live-colorado/static/js/2.6ce948f5.chunk.js",
+    "static/js/2.6ce948f5.chunk.js.map": "/covid19-live-colorado/static/js/2.6ce948f5.chunk.js.map",
+    "index.html": "/covid19-live-colorado/index.html",
+    "precache-manifest.490bcadc6dfd57a89b31a42d0e73955e.js": "/covid19-live-colorado/precache-manifest.490bcadc6dfd57a89b31a42d0e73955e.js",
+    "service-worker.js": "/covid19-live-colorado/service-worker.js",
+    "static/css/main.60be3e8b.chunk.css.map": "/covid19-live-colorado/static/css/main.60be3e8b.chunk.css.map",
+    "static/js/2.6ce948f5.chunk.js.LICENSE.txt": "/covid19-live-colorado/static/js/2.6ce948f5.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57a40ad4.js",
+    "static/js/2.6ce948f5.chunk.js",
+    "static/css/main.60be3e8b.chunk.css",
+    "static/js/main.a0d07a39.chunk.js"
+  ]
+}
