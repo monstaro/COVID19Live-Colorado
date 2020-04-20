@@ -26,7 +26,7 @@ class CountyStats extends Component {
       });
     }
     return counties;
-  };
+  }
   selectCounty(county) {
     if (county !== "default") {
       this.setState(
@@ -57,7 +57,7 @@ class CountyStats extends Component {
     } else {
       return;
     }
-  };
+  }
   returnCurrentCountyInfo(county) {
     let a = this.props.countyDeaths.filter(
       (co) => co.county === county.split(" ")[0]
@@ -68,7 +68,7 @@ class CountyStats extends Component {
     } else {
       return 0;
     }
-  };
+  }
   toggleBookmark() {
     if (
       this.props.bookmarks.find(
@@ -77,7 +77,7 @@ class CountyStats extends Component {
     ) {
       this.props.removeBookmark(this.state);
       this.setState({
-        bookmarkBtnTxt: "Bookmark This County",
+        bookmarkBtnTxt: "Add To Bookmarks",
       });
     } else {
       this.props.saveBookmark(this.state);
@@ -85,11 +85,10 @@ class CountyStats extends Component {
         bookmarkBtnTxt: "Remove From Bookmarks",
       });
     }
-  };
+  }
   render() {
     if (this.props.counties.length) {
       return (
-
         <div
           className="county-stats-container"
           data-testid="county-stats-container"
@@ -102,13 +101,13 @@ class CountyStats extends Component {
               countyNames={this.getCountyNames()}
               selectCounty={(county) => this.selectCounty(county)}
             />
-              </section>
-            <CountyData
-              deaths={this.state.deaths}
-              cases={this.state.cases}
-              countyPop={this.state.countyPop}
-              countyName={this.state.countyName}
-            />
+          </section>
+          <CountyData
+            deaths={this.state.deaths}
+            cases={this.state.cases}
+            countyPop={this.state.countyPop}
+            countyName={this.state.countyName}
+          />
           <button
             hidden={!this.state.countyName}
             onClick={() => this.toggleBookmark()}
@@ -150,5 +149,5 @@ CountyStats.propTypes = {
   countyDeaths: PropTypes.array,
   bookmarks: PropTypes.array,
   saveBookmark: PropTypes.func,
-  removeBookmark: PropTypes.func
+  removeBookmark: PropTypes.func,
 };

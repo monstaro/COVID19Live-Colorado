@@ -24,7 +24,7 @@ export const fetchHealthDepts = async () => {
       item.name = "Denver County";
     }
     if (item.name === "City and County of Broomfield") {
-      item.name = "Denver Broomfield";
+      item.name = "Broomfield County";
     }
   });
   return data;

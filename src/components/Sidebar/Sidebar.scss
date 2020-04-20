@@ -6,10 +6,16 @@
 
 .sidebar-links {
   list-style-type: none;
-  padding-right: 35px;
+  padding-right: 25px;
   margin: 20px 0;
   text-align: right;
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
 }
+
+
 
 .about,
 .staying-protected,
@@ -18,5 +24,16 @@
 .bookmarked-counties {
   color: #0788bf;
   font-size: 1.2em;
-  margin: 40px 0;
+  margin: 40px 0 0 10px;
+  padding-right: 5px;
+}
+
+.active-link {
+  border-right: 2px solid $light-blue;
+  margin-left: 10px;
+}
+
+.inactive-link {
+  border-right: 2px solid $grey;
+  margin-left: 10px;
 }
