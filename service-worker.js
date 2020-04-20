@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/covid19-live-colorado/precache-manifest.8018fce65fac6cee30dc2deccda650fd.js"
+  "/covid19-live-colorado/precache-manifest.6748de80b4ad2c35e93c9121ca8221ff.js"
 );
 
 self.addEventListener('message', (event) => {
