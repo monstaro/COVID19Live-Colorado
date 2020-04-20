@@ -9,7 +9,7 @@ import StayingProtected from './StayingProtected'
 describe ('Welcome', () => {
     it('should render', () => {
     const store = createStore(rootReducer)
-    const { getByTestId } = render (
+    const { getByTestId, getByText } = render (
       <Provider store = {store}>
         <Router>
           <StayingProtected />
@@ -17,5 +17,7 @@ describe ('Welcome', () => {
       </Provider>
     )
     expect(getByTestId('staying-protected-container')).toBeInTheDocument()
+    expect(getByText('CPSC COVID-19 Home Safty Page')).toBeInTheDocument()
+    expect(getByText('Pandemic Resources & Information by API Energy')).toBeInTheDocument()
     })
 })

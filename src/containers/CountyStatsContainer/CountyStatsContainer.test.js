@@ -181,30 +181,27 @@ describe("County Stats", () => {
     );
     expect(getByTestId("county-stats-container")).toBeInTheDocument();
   });
-  it("should be able to select a county and display its data", async () => {
-    const store = createStore(rootReducer);
-    const { getAllByText, getAllByTestId, getByText } = render(
+  it("should be able to select a county", async () => {
+    const initialState = { countiesList: [{
+      "County_Population": 6837,
+      "County_Pos_Cases": 3,
+      "FULL_": "Saguache County",
+    }]}
+    const store = createStore(rootReducer, initialState);
+    const { getAllByText, getByTestId, getByText } = render(
       <Provider store={store}>
         <Router>
-          <App />
           <CountyStatsContainer 
-            countyName={'Denver County'}
-            deaths={5}
             />
         </Router>
       </Provider>
     );
     const selectCounty = jest.fn();
-    selectCounty("Denver County");
+    selectCounty("Saguache County");
     expect(selectCounty).toHaveBeenCalled();
     expect(selectCounty).toHaveBeenCalledTimes(1);
-    expect(selectCounty).toBeCalledWith("Denver County");
-    fireEvent.click(getByText("Live County Stats"));
-    let county = await waitForElement(() => getAllByText("Sedgwick County"));
-    fireEvent.click(county[1]);
-    let countyInfo = await waitForElement(() =>
-      getAllByTestId("county-data-container")
-    );
-    expect(countyInfo[1]).toBeInTheDocument();
+    expect(selectCounty).toBeCalledWith("Saguache County");
+    expect(getByTestId("Saguache County")).toBeInTheDocument()
+
   });
 });

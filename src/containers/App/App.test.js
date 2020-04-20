@@ -271,7 +271,6 @@ describe("App", () => {
     expect(county).toBeInTheDocument();
     fireEvent.click(county);
     expect(getByTestId("dept-info")).toBeInTheDocument();
-
     fireEvent.click(getByText("Live County Stats"));
     fireEvent.click(getByTestId("county-dropdown-container"));
     let countyData = await waitForElement(() => getByTestId("Cheyenne County"));
