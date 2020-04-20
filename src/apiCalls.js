@@ -1,5 +1,5 @@
-const request=require('request')
-const csv=require('csvtojson')
+const request = require("request");
+const csv = require("csvtojson");
 
 export const fetchCounties = async () => {
   const response = await fetch(
@@ -10,8 +10,8 @@ export const fetchCounties = async () => {
     County_Population: entries.properties.County_Population,
     County_Pos_Cases: entries.properties.County_Pos_Cases,
     FULL_: entries.properties.FULL_,
-   }));
-  return filteredData
+  }));
+  return filteredData;
 };
 
 export const fetchHealthDepts = async () => {
@@ -19,23 +19,37 @@ export const fetchHealthDepts = async () => {
     "https://postman-data-api-templates.github.io/county-health-departments/api/colorado.json"
   );
   const data = await response.json();
+  let a = data.map((item) => {
+    if (item.name === "City and County of Denver") {
+      item.name = "Denver County";
+    }
+    if (item.name === "City and County of Broomfield") {
+      item.name = "Denver Broomfield";
+    }
+  });
+  console.log(a, data);
   return data;
 };
 
 export const fetchCountyDeaths = async () => {
-    
-    const countyDeaths = []
-    await csv()
-    .fromStream(request.get('https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv'))
-    .subscribe((json)=>{
-        if(json.state === 'Colorado') {
-            countyDeaths.push(json)
-        }
-    })
-    const a = await countyDeaths
-    const b = await a.map(entry => ({cases: entry.cases,
-      county: entry.county,
-      date: entry.date,
-      deaths: entry.deaths}))
-    return b
+  const countyDeaths = [];
+  await csv()
+    .fromStream(
+      request.get(
+        "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-counties.csv"
+      )
+    )
+    .subscribe((json) => {
+      if (json.state === "Colorado") {
+        countyDeaths.push(json);
+      }
+    });
+  const a = await countyDeaths;
+  const b = await a.map((entry) => ({
+    cases: entry.cases,
+    county: entry.county,
+    date: entry.date,
+    deaths: entry.deaths,
+  }));
+  return b;
 };
