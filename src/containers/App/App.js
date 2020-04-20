@@ -28,11 +28,9 @@ class App extends Component {
         <Header className="header" />
         <Nav className="nav" />
         <Sidebar className="sidebar" />
-        <Route
-          path="/"
-          exact
-          component={() => <Welcome className="main-area" />}
-        />
+        <Route path="/">
+          <Redirect to="/welcome" />
+        </Route>
         <Route
           path="/about"
           exact
@@ -63,11 +61,6 @@ class App extends Component {
           exact
           component={() => <Welcome className="main-area" />}
         />
-
-        <Route exact path="/:any">
-          {<Redirect to="/welcome" />}
-        </Route>
-
         <Footer className="footer" />
       </div>
     );
