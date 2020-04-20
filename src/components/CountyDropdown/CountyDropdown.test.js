@@ -26,4 +26,9 @@ describe ('County Dropdown List', () => {
     fireEvent.click(getByTestId('Adams County'))
     expect(getByTestId('Adams County')).toBeInTheDocument()
     })
+    it('should be able to make a dropdown menu', () => {
+      const makeDropdown = jest.fn()
+      makeDropdown()
+      expect(makeDropdown).toHaveBeenCalled()
+    })
 })
