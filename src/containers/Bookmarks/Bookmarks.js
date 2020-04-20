@@ -16,6 +16,8 @@ const Bookmarks = (props) => {
             cases={bookmark.cases}
             countyPop={bookmark.countyPop}
             countyName={bookmark.countyName}
+            lastUpdate={bookmark.date}
+
           />
         ))}
       </div>
