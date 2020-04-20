@@ -3,7 +3,7 @@ import "./CountyData.scss";
 import PropTypes from 'prop-types';
 
 class CountyData extends Component {
-  makeTable = (props) => {
+  makeTable() {
     if (this.props.countyPop) {
       return (
         <div>
