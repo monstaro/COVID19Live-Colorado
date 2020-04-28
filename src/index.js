@@ -11,7 +11,7 @@ import rootReducer from "./reducers";
 
 const store = createStore(rootReducer, composeWithDevTools());
 const router = (
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <App></App>
   </BrowserRouter>
 );
