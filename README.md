@@ -1,10 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## COVID19 Live Colorado
+Updated daily, this application allows Colorado residents to check their local county for Covid-19 infection rates, fatalities, safety tips, and more. 
 
-## Available Scripts
+### Navigation
 
+The site has a number of sections,
+- About
+  (Just some basic info about the site)
+- Staying Protected
+  (Various guides to safety in a pandemic)
+- Your County Healh Department
+  (Find health department information for your county)
+- Live County Stats
+  (Find COVID-19 Numbers for your area)
+- Bookmarks
+  (Bookmark counties and look back at a later time)
+
+### Images
+
+![Page 3](https://user-images.githubusercontent.com/32964891/79809833-bb294600-832e-11ea-8c07-d0d37f3436a7.png)
+![Page 2](https://user-images.githubusercontent.com/32964891/79809839-bfedfa00-832e-11ea-89f0-0a57f72650ed.png)
+![Page 1](https://user-images.githubusercontent.com/32964891/79809850-c8463500-832e-11ea-8b4f-8147e5e2b8ec.png)
+
+### Instructions
+
+Clone Down this repo, run the following in your terminal, npm install, npm start.
 In the project directory, you can run:
 
-### `npm start`
+#### `npm start`
 
 Runs the app in the development mode.<br />
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -12,57 +34,33 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+#### `npm test`
 
 Launches the test runner in the interactive watch mode.<br />
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Used
 
-### `npm run eject`
+- React
+- React Router
+- Redux
+- Jest
+- React Testing Library
+- SASS/SCSS/CSS3
+- HTML5
+- Fetch API
+- CSVtoJSON (https://www.npmjs.com/package/csvtojson)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Sources
+- [NY Times COVID-19 Map](https://github.com/nytimes/covid-19-data/blob/master/us-counties.csv)
+- [CDPHE Open Data](https://data-cdphe.opendata.arcgis.com/datasets/colorado-covid-19-positive-cases-and-rates-of-infection-by-county-of-identification?geometry=-121.371%2C35.977%2C-89.731%2C41.950)
+- [Postman COVID-19 APIs](https://documenter.getpostman.com/view/8854915/SzYXVdyQ?version=latest)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Future Iterations
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- I would like to include some sort of interactive map over the counties. There is GEOjson data included in the original dataset from CDPHE.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- I would also like to do something similar for other states in the US.
