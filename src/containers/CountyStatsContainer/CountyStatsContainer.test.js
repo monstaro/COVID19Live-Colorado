@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
@@ -202,5 +202,7 @@ describe("County Stats", () => {
     expect(selectCounty).toHaveBeenCalledTimes(1);
     expect(selectCounty).toBeCalledWith("Saguache County");
     expect(getByTestId("Saguache County")).toBeInTheDocument();
+    fireEvent.click(getByTestId("Saguache County"));
+    expect(getByText('Fatalities')).toBeInTheDocument();
   });
 });
