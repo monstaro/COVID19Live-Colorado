@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d18a2de3ddd9da42c6b09acdb13ede7b",
+    "revision": "ed043a49f0421aec0c625520a4735108",
     "url": "/covid19-live-colorado/index.html"
   },
   {
-    "revision": "ee2e34b8bdcb3b253e4f",
-    "url": "/covid19-live-colorado/static/css/main.334bf635.chunk.css"
+    "revision": "05cf1bf1adc565ab0f1e",
+    "url": "/covid19-live-colorado/static/css/main.8872aad6.chunk.css"
   },
   {
     "revision": "be9a66e511ba70046cab",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/covid19-live-colorado/static/js/2.25a3c0a9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ee2e34b8bdcb3b253e4f",
-    "url": "/covid19-live-colorado/static/js/main.03db6881.chunk.js"
+    "revision": "05cf1bf1adc565ab0f1e",
+    "url": "/covid19-live-colorado/static/js/main.4ba43f8e.chunk.js"
   },
   {
     "revision": "07d7f9e0fafa5244b7cc",
