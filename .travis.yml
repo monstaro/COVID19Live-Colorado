@@ -5,6 +5,8 @@ notifications:
 email: false
 deploy:
   provider: heroku
-  secure: $secure
+  token: "$TOKEN"
   app: rocky-eyrie-76288
   skip_cleanup: true
+  api_key:
+    secure: bYH+mXKCmRCPXWh1sLb64lSPdZAxw2uUkxIuKDXN7/jj8/3RoPEWLbDhLn72NNcRd2x2VQ04ITdsoDGPOqQwG933mAFoAUm7uBEDBNlXpMEgNW53Dz3o6bQdUXj91fMiC7wTmzJToBSF8bNZXdVeI0Cp+QjYrY1+iNXDnnITSFvvJLqx5vOolZh5X/px6k+7CSOA1DK7qQ4qtUkazvULVz2sE3nuQS39YKsMdH5MU3IL+Kto6IlGk2a/hncmUTWrOR41UvnrTdGG5yQWzPsOQnXbGdRM2ERd3Twpr9cLSh6mn4sCwSwuhVFFkX9PwR/GLe6Q+11cQ5d0mJ/ElIY9xtNC7ngMvLrOi10bEVGQss8tPslLFCQz3QVGATULn6dzpxyJHCUJFDK/O7t2wZ/pw75kXwD5Ca1HtdB8Nn7ynbxAAQwWrT2g6069jPI2qffcN+StX9hJBG39ArwIHe9fqBPjRULMxCVIrXKfstXlerHE+e4FEm8D5hh9UROkMxNOCOxMbOlg1Gk4kggiCKzaYnvQAlat8J+phALd1EdK1ZwxjZ4/xbXoyK5GiFf+CGSjJgrvyIHIpzTn4wzmGo5iCTGYv+CptB9pUAN9a3gYjxH9RfHdhAwAoqlFuj2xLvbYPeh//NN9waA5O46DRpORmLgcZwScaepQAuRnW/VM+fg=
