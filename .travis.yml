@@ -1,5 +1,11 @@
 language: node_js
 node_js:
-  - "node"
-notifications:
+- node
+notifications: 
 email: false
+deploy:
+  provider: heroku
+  api_key:
+    secure: Qz2fY8nBrSPFf3O4iznY8GWz4ZISpoEoHvsw7o8wsRbvkPvL7UZgubLFWuF1IDO/9hHP8E5UyfRgvioSXubOKn1/vkAamtmuYQU9W1NftZUbcAIjjaEZZ5Q8926sthOqlu4lHohLD54eoquudkQoFjI0sN0BxTfiJFGT3Q+ECp/1nQ8AVuXtUAHd5t0RXcpRHpp8czxN59uPmPsqZYLgpjJj3V85cU+Hpk6y9c78D6W4t7Ioc9FzTkevZPYPIDucYyyBK0ne8h0+lv1R+kSxrk6n02Zkzj09XmRjSPxctjE0lUqeb66+P9AuB3PSHSIpnPy2kybeV8Ut0tBZcdAXIm8tXtEjZMflUUkQ4csAPHcBPTFvSBVsi7FoJJG1nssT5w9GU/+c0zjWNvaj++5OBiogsp3wCv2ZFsmFveGhe5XAvnbchbZVdhxmjCGDhhDHgnMEVg+/JMvu620nnz16F4As0YaH6O6E8ws8wj088qCCdc/1CJjnHlTJP/aHs+9lKQ2w7eit049AwfgaswjBrf+mPnhkYSvuHBPesQNgRDOkmAcExG28xY9OFchVMuIcluQfr5NCkCTGhcSVwxGZ4KWZdTltcTQ2nRP9Y0SHeRdrIkRdd8Xzk8AWVyXY0Yug4AB1YRGhRUhC5ahLmFF0EXzdvqXmMiM8KbNrNytWpWs=
+  app: rocky-eyrie-76288
+  skip_cleanup: true
