@@ -6,7 +6,11 @@ const CountyDropdown = ({ disableFirstVal, countyNames, selectCounty }) => {
   const makeDropdown = () => {
     return countyNames.sort().map((county) => {
       return (
-        <option data-testid={county} value={county} key={county + "key"}>
+        <option
+          data-testid={county}
+          value={county}
+          key={county + Math.floor(Math.random() * 100 + 1)}
+        >
           {county}
         </option>
       );
