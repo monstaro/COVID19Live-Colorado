@@ -5,7 +5,6 @@ notifications:
 email: false
 deploy:
   provider: heroku
-  api_key:
-    secure: $secure
+  secure: $secure
   app: rocky-eyrie-76288
   skip_cleanup: true
