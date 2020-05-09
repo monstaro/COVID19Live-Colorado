@@ -4,12 +4,14 @@ import PropTypes from "prop-types";
 
 const CountyDropdown = ({ disableFirstVal, countyNames, selectCounty }) => {
   const makeDropdown = () => {
+    let keygen = 0;
+    const incrementer = () => {return keygen += 1}
     return countyNames.sort().map((county) => {
       return (
         <option
           data-testid={county}
           value={county}
-          key={county + Math.floor(Math.random() * 100 + 1)}
+          key={county + incrementer()}
         >
           {county}
         </option>
