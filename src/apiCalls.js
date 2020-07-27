@@ -3,7 +3,7 @@ const csv = require("csvtojson");
 
 export const fetchCounties = async () => {
   const response = await fetch(
-    "https://opendata.arcgis.com/datasets/222c9d85e93540dba523939cfb718d76_0.geojson"
+    "https://opendata.arcgis.com/datasets/7dd9bfa5607f4c70b2a7c9634ccdca53_0.geojson"
   );
   const data = await response.json();
   const filteredData = data.features.map((entries) => ({
