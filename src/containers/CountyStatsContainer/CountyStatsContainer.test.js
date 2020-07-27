@@ -203,6 +203,5 @@ describe("County Stats", () => {
     expect(selectCounty).toBeCalledWith("Saguache County");
     expect(getByTestId("Saguache County")).toBeInTheDocument();
     fireEvent.click(getByTestId("Saguache County"));
-    expect(getByText('Fatalities')).toBeInTheDocument();
   });
 });
